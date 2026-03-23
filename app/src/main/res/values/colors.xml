@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="orange_primary">#FFFF6B35</color>
+    <color name="orange_variant">#FFFF8C61</color>
+    <color name="orange_light">#FFFFE5DC</color>
+    <color name="green_success">#FF4CAF50</color>
+    <color name="red_error">#FFF44336</color>
+    <color name="blue_accent">#FF2196F3</color>
+    <color name="yellow_warning">#FFFFC107</color>
+    <color name="gray_text">#FF666666</color>
+    <color name="gray_light">#FF999999</color>
+    <color name="gray_background">#FFF5F5F5</color>
+    <color name="gray_divider">#FFE0E0E0</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rating_gold">#FFFFB800</color>
+</resources>
