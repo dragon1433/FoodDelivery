@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_noodles.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_noodles.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_coffee.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\restaurant_coffee.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_main.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_order.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_address.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_coffee.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_coffee.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_avatar_circle.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\avatar_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_western.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\restaurant_western.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_vegetables.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_vegetables.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_burger.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_burger.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_order.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_checkout.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_checkout.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_storefront.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\restaurant_storefront.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_fries.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_fries.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_coffee.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_coffee.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_remove.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_remove.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_chicken.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_chicken.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_banner_delicious.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\banner_delicious.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_cart.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_meat.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_meat.xml"
+    },
+    {
+        "merged": "com.fooddelivery.app-debug-50:/layout_fragment_search.xml.flat",
+        "source": "com.fooddelivery.app-main-52:/layout/fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_search_background.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\search_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_pizza.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_pizza.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_restaurant.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_restaurant.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_profile.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_search.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_pizza.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_pizza.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_pizza.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\restaurant_pizza.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_home.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_dish.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_dish.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_hotpot.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\restaurant_hotpot.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_dessert.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_dessert.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_food_burger.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_burger.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_dessert.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_dessert.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_chicken.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_chicken.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_profile_header_bg.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\profile_header_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_noodles.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_noodles.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_address.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_cart.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_category.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_restaurant_detail.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_restaurant_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_item_cart.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\xml\\backup_rules.xml"
+    }
+]

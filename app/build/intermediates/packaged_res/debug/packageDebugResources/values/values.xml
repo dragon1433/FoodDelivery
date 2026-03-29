@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue_accent">#FF2196F3</color>
+    <color name="gray_background">#FFF5F5F5</color>
+    <color name="gray_divider">#FFE0E0E0</color>
+    <color name="gray_light">#FF999999</color>
+    <color name="gray_text">#FF666666</color>
+    <color name="green_success">#FF4CAF50</color>
+    <color name="orange_light">#FFFFE5DC</color>
+    <color name="orange_primary">#FFFF6B35</color>
+    <color name="orange_variant">#FFFF8C61</color>
+    <color name="rating_gold">#FFFFB800</color>
+    <color name="red_error">#FFF44336</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow_warning">#FFFFC107</color>
+    <string name="address_add">新增地址</string>
+    <string name="address_default">设为默认</string>
+    <string name="address_delete">删除地址</string>
+    <string name="address_detail">详细地址</string>
+    <string name="address_edit">编辑地址</string>
+    <string name="address_phone">手机号</string>
+    <string name="address_receiver">收货人</string>
+    <string name="app_name">美味外卖</string>
+    <string name="back">返回</string>
+    <string name="cancel">取消</string>
+    <string name="cart">购物车</string>
+    <string name="cart_checkout">去结算</string>
+    <string name="cart_clear">清空</string>
+    <string name="cart_delivery_fee">配送费</string>
+    <string name="cart_empty">购物车空空如也~</string>
+    <string name="cart_packing_fee">餐盒费</string>
+    <string name="cart_total">合计</string>
+    <string name="confirm">确认</string>
+    <string name="empty_data">暂无数据</string>
+    <string name="home">首页</string>
+    <string name="home_nearby">附近</string>
+    <string name="home_recommend">推荐</string>
+    <string name="home_search_hint">搜索商家、商品名称</string>
+    <string name="loading">加载中…</string>
+    <string name="network_error">网络错误，请稍后重试</string>
+    <string name="ok">确定</string>
+    <string name="order_status_cancelled">已取消</string>
+    <string name="order_status_completed">已完成</string>
+    <string name="order_status_delivered">已送达</string>
+    <string name="order_status_delivering">配送中</string>
+    <string name="order_status_paid">已支付</string>
+    <string name="order_status_pending">待支付</string>
+    <string name="order_status_preparing">制作中</string>
+    <string name="order_submit">提交订单</string>
+    <string name="profile">我的</string>
+    <string name="profile_address_manage">地址管理</string>
+    <string name="profile_coupon">优惠券</string>
+    <string name="profile_my_order">我的订单</string>
+    <string name="profile_settings">设置</string>
+    <string name="profile_wallet">我的钱包</string>
+    <string name="restaurant_add_to_cart">加入购物车</string>
+    <string name="restaurant_buy_now">立即购买</string>
+    <string name="restaurant_detail_title">餐厅详情</string>
+    <string name="search">搜索</string>
+    <style name="Theme.FoodDelivery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/orange_primary</item>
+        <item name="colorPrimaryVariant">@color/orange_variant</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        
+        <item name="colorSecondary">@color/orange_primary</item>
+        <item name="colorSecondaryVariant">@color/orange_variant</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+</resources>

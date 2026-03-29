@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Background gradient -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M0,0h400v200h-400z"/>
+    <!-- Decorative circles -->
+    <path
+        android:fillColor="#FF8A65"
+        android:pathData="M50,50m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0"/>
+    <path
+        android:fillColor="#FF8A65"
+        android:pathData="M350,150m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"/>
+    <path
+        android:fillColor="#FF8A65"
+        android:pathData="M300,80m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"/>
+    <!-- Plate -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M200,100m-60,0a60,60 0,1 1,120 0a60,60 0,1 1,-120 0"/>
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M200,100m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"/>
+    <!-- Food items on plate -->
+    <path
+        android:fillColor="#FF7043"
+        android:pathData="M180,90l-10,20h20z"/>
+    <path
+        android:fillColor="#FF7043"
+        android:pathData="M210,95l-8,15h16z"/>
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M195,105l-5,10h10z"/>
+    <!-- Text: 美味外卖 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M80,40h80v30h-80z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M240,40h80v30h-80z"/>
+</vector>

@@ -1,0 +1,47 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Restaurant storefront icon -->
+    <!-- Building base -->
+    <path
+        android:fillColor="#FF7043"
+        android:pathData="M4,10v10h16V10H4z"/>
+    <!-- Roof -->
+    <path
+        android:fillColor="#E64A19"
+        android:pathData="M3,9h18L12,3 3,9z"/>
+    <!-- Door -->
+    <path
+        android:fillColor="#5D4037"
+        android:pathData="M10,14h4v6h-4z"/>
+    <!-- Door knob -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M13.5,17m-0.5,0a0.5,0.5 0,1 1,1 0,0.5 0.5,0 1,1 -1,0"/>
+    <!-- Windows -->
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M6,12h2v2H6z"/>
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M16,12h2v2h-2z"/>
+    <!-- Awning -->
+    <path
+        android:fillColor="#FFCA28"
+        android:pathData="M8,10h8v1H8z"/>
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M8,10l1,1h1l-1,-1h-1z"/>
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M11,10l1,1h1l-1,-1h-1z"/>
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M14,10l1,1h1l-1,-1h-1z"/>
+    <!-- Sign -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M11,6h2v2h-2z"/>
+</vector>

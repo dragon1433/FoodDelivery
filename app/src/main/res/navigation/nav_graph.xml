@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <!-- 主页 -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.fooddelivery.app.ui.screens.home.MainFragment"
+        android:label="主页">
+        <action
+            android:id="@+id/action_mainFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+        <action
+            android:id="@+id/action_main_fragment_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <!-- 购物车 -->
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.fooddelivery.app.ui.screens.cart.CartFragment"
+        android:label="购物车">
+        <action
+            android:id="@+id/action_cart_fragment_to_checkout_fragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <!-- 订单 -->
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.fooddelivery.app.ui.screens.order.OrderFragment"
+        android:label="订单" />
+
+    <!-- 个人中心 -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.fooddelivery.app.ui.screens.profile.ProfileFragment"
+        android:label="个人中心">
+        <action
+            android:id="@+id/action_profile_fragment_to_address_fragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+
+    <!-- 餐厅详情 -->
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.fooddelivery.app.ui.screens.restaurant.RestaurantDetailFragment"
+        android:label="餐厅详情">
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <!-- 搜索 -->
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.fooddelivery.app.ui.screens.search.SearchFragment"
+        android:label="搜索" />
+
+    <!-- 结算 -->
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.fooddelivery.app.ui.screens.checkout.CheckoutFragment"
+        android:label="结算">
+        <action
+            android:id="@+id/action_checkoutFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+
+    <!-- 地址管理 -->
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.fooddelivery.app.ui.screens.address.AddressFragment"
+        android:label="地址管理" />
+
+</navigation>

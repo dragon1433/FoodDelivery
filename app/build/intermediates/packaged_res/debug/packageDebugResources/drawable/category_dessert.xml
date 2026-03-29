@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Dessert/Ice cream icon for category -->
+    <path
+        android:fillColor="#F06292"
+        android:pathData="M12,2c-3.3,0 -6,2.7 -6,6 0,4 3,6 3,9v5h6v-5c0,-3 3,-5 3,-9 0,-3.3 -2.7,-6 -6,-6z"/>
+    <path
+        android:fillColor="#F48FB1"
+        android:pathData="M12,3c-2.8,0 -5,2.2 -5,5 0,3 2,5 2,7v3h6v-3c0,-2 2,-4 2,-7 0,-2.8 -2.2,-5 -5,-5z"/>
+    <path
+        android:fillColor="#FFF0F5"
+        android:pathData="M10,6m-1,0a1,1 0,1 1,2 0,1 1,0 1,1 -2,0"/>
+    <path
+        android:fillColor="#FFF0F5"
+        android:pathData="M14,7m-0.8,0a0.8,0.8 0,1 1,1.6 0,0.8 0.8,0 1,1 -1.6,0"/>
+    <path
+        android:fillColor="#FFF0F5"
+        android:pathData="M12,9m-0.7,0a0.7,0.7 0,1 1,1.4 0,0.7 0.7,0 1,1 -1.4,0"/>
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M9,4l1,1 -0.5,0.5 -1,-1z"/>
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M14,5l0.8,0.8 -0.4,0.4 -0.8,-0.8z"/>
+</vector>
