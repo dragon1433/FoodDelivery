@@ -172,6 +172,10 @@ public class CheckoutFragment extends Fragment {
         Long restaurantId = cartItems.get(0).getRestaurantId();
         order.setRestaurantId(restaurantId);
         
+        // 根据 restaurantId 设置餐厅名称
+        String restaurantName = getRestaurantNameById(restaurantId);
+        order.setRestaurantName(restaurantName != null ? restaurantName : "未知餐厅");
+        
         // 创建订单商品
         List<OrderItem> orderItems = new ArrayList<>();
         for (CartItem item : cartItems) {
@@ -203,5 +207,26 @@ public class CheckoutFragment extends Fragment {
         
         // 返回到订单页面
         navController.popBackStack();
+    }
+    
+    /**
+     * 根据餐厅 ID 获取餐厅名称
+     */
+    private String getRestaurantNameById(Long restaurantId) {
+        // 从 Mock 数据中获取餐厅名称映射
+        switch (restaurantId.intValue()) {
+            case 1:
+                return "麦当劳";
+            case 2:
+                return "肯德基";
+            case 3:
+                return "必胜客";
+            case 4:
+                return "海底捞火锅";
+            case 5:
+                return "星巴克";
+            default:
+                return null;
+        }
     }
 }
