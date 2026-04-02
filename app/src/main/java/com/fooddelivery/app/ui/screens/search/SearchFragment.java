@@ -30,6 +30,7 @@ import java.util.List;
 public class SearchFragment extends Fragment implements RestaurantAdapter.OnItemClickListener {
     
     private EditText editSearch;
+    private ImageView btnBack;
     private ImageView btnClear;
     private RecyclerView recyclerRestaurants;
     private RecyclerView recyclerDishes;
@@ -55,6 +56,7 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
         
         // 初始化视图
         editSearch = view.findViewById(R.id.edit_search);
+        btnBack = view.findViewById(R.id.btn_back);
         btnClear = view.findViewById(R.id.btn_clear);
         recyclerRestaurants = view.findViewById(R.id.recycler_restaurants);
         recyclerDishes = view.findViewById(R.id.recycler_dishes);
@@ -85,6 +87,12 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
         // 清空按钮点击
         btnClear.setOnClickListener(v -> {
             editSearch.setText("");
+        });
+        
+        // 返回按钮点击
+        btnBack.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(view);
+            navController.navigateUp();
         });
         
         // 搜索框文本变化监听
