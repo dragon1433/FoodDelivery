@@ -23,6 +23,9 @@ public final class FragmentSearchBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final ImageView btnBack;
+
+  @NonNull
   public final ImageView btnClear;
 
   @NonNull
@@ -40,11 +43,12 @@ public final class FragmentSearchBinding implements ViewBinding {
   @NonNull
   public final TextView textRestaurantTitle;
 
-  private FragmentSearchBinding(@NonNull LinearLayout rootView, @NonNull ImageView btnClear,
-      @NonNull EditText editSearch, @NonNull RecyclerView recyclerDishes,
-      @NonNull RecyclerView recyclerRestaurants, @NonNull TextView textDishTitle,
-      @NonNull TextView textRestaurantTitle) {
+  private FragmentSearchBinding(@NonNull LinearLayout rootView, @NonNull ImageView btnBack,
+      @NonNull ImageView btnClear, @NonNull EditText editSearch,
+      @NonNull RecyclerView recyclerDishes, @NonNull RecyclerView recyclerRestaurants,
+      @NonNull TextView textDishTitle, @NonNull TextView textRestaurantTitle) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
     this.btnClear = btnClear;
     this.editSearch = editSearch;
     this.recyclerDishes = recyclerDishes;
@@ -80,6 +84,12 @@ public final class FragmentSearchBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_back;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.btn_clear;
       ImageView btnClear = ViewBindings.findChildViewById(rootView, id);
       if (btnClear == null) {
@@ -116,7 +126,7 @@ public final class FragmentSearchBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSearchBinding((LinearLayout) rootView, btnClear, editSearch,
+      return new FragmentSearchBinding((LinearLayout) rootView, btnBack, btnClear, editSearch,
           recyclerDishes, recyclerRestaurants, textDishTitle, textRestaurantTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);

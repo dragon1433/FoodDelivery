@@ -1,11 +1,23 @@
 [
     {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\fragment_forgot_password.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_forgot_password.xml"
+    },
+    {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\item_cart.xml",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_cart.xml"
     },
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\item_address.xml",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\item_address.xml"
+    },
+    {
+        "merged": "com.fooddelivery.app-mergeDebugResources-49:/layout/fragment_profile.xml",
+        "source": "com.fooddelivery.app-main-52:/layout/fragment_profile.xml"
     },
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\item_restaurant.xml",
@@ -36,8 +48,8 @@
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_checkout.xml"
     },
     {
-        "merged": "com.fooddelivery.app-mergeDebugResources-49:/layout/fragment_search.xml",
-        "source": "com.fooddelivery.app-main-52:/layout/fragment_search.xml"
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\fragment_register.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_register.xml"
     },
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-mergeDebugResources-49:\\layout\\fragment_address.xml",

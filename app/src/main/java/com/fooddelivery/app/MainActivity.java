@@ -1,6 +1,7 @@
 package com.fooddelivery.app;
 
 import android.os.Bundle;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
             NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+            
+            // 监听导航变化，在登录/注册页面隐藏底部导航
+            navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+                if (destination.getId() == R.id.loginFragment || destination.getId() == R.id.registerFragment) {
+                    binding.bottomNavigation.setVisibility(View.GONE);
+                } else {
+                    binding.bottomNavigation.setVisibility(View.VISIBLE);
+                }
+            });
         }
     }
 }

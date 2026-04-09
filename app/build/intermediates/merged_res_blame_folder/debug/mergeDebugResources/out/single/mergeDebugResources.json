@@ -32,8 +32,16 @@
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_coffee.xml"
     },
     {
+        "merged": "com.fooddelivery.app-debug-50:/layout_fragment_profile.xml.flat",
+        "source": "com.fooddelivery.app-main-52:/layout/fragment_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_avatar_circle.xml.flat",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\avatar_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_register.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_register.xml"
     },
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_restaurant_western.xml.flat",
@@ -96,10 +104,6 @@
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_meat.xml"
     },
     {
-        "merged": "com.fooddelivery.app-debug-50:/layout_fragment_search.xml.flat",
-        "source": "com.fooddelivery.app-main-52:/layout/fragment_search.xml"
-    },
-    {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_search_background.xml.flat",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\search_background.xml"
     },
@@ -136,6 +140,10 @@
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_home.xml"
     },
     {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_forgot_password.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_forgot_password.xml"
+    },
+    {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
@@ -164,6 +172,10 @@
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\food_burger.xml"
     },
     {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\layout\\fragment_login.xml"
+    },
+    {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_dessert.xml.flat",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\category_dessert.xml"
     },
@@ -174,6 +186,10 @@
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_profile_header_bg.xml.flat",
         "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\profile_header_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_ic_order.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-main-52:\\drawable\\ic_order.xml"
     },
     {
         "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\9.0-milestone-1\\com.fooddelivery.app-debug-50:\\drawable_category_noodles.xml.flat",

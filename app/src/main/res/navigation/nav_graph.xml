@@ -3,7 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/loginFragment">
+
+    <!-- 登录 -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fooddelivery.app.ui.screens.login.LoginFragment"
+        android:label="登录">
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <!-- 注册 -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.fooddelivery.app.ui.screens.register.RegisterFragment"
+        android:label="注册" />
 
     <!-- 主页 -->
     <fragment
