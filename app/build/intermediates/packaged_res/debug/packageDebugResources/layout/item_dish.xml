@@ -13,16 +13,16 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- 菜品图片 -->
+        <!-- Dish Image -->
         <ImageView
             android:id="@+id/image_dish"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_home"
-            android:contentDescription="菜品图片" />
+            android:contentDescription="Dish image" />
 
-        <!-- 菜品信息 -->
+        <!-- Dish Information -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 android:id="@+id/text_dish_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="菜品名称"
+                android:text="@string/empty_data"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#333333" />
@@ -44,7 +44,7 @@
                 android:id="@+id/text_dish_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="菜品描述"
+                android:text="@string/empty_data"
                 android:textSize="12sp"
                 android:textColor="#999999"
                 android:layout_marginTop="4dp"
@@ -80,7 +80,7 @@
                         android:layout_height="32dp"
                         android:src="@drawable/ic_remove"
                         android:padding="6dp"
-                        android:contentDescription="减少" />
+                        android:contentDescription="Decrease" />
 
                     <TextView
                         android:id="@+id/text_quantity"
@@ -97,7 +97,7 @@
                         android:layout_height="32dp"
                         android:src="@drawable/ic_add"
                         android:padding="6dp"
-                        android:contentDescription="增加" />
+                        android:contentDescription="Increase" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

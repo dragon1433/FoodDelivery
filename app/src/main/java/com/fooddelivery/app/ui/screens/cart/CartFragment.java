@@ -23,7 +23,7 @@ import com.fooddelivery.app.ui.viewmodels.CartViewModel;
 import java.util.List;
 
 /**
- * 购物车 Fragment
+ * Cart Fragment
  */
 public class CartFragment extends Fragment implements CartAdapter.OnItemClickListener {
     
@@ -49,26 +49,26 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
-        // 初始化导航
+        // Initialize navigation
         navController = Navigation.findNavController(view);
         
-        // 初始化视图
+        // Initialize views
         recyclerCart = view.findViewById(R.id.recycler_cart);
         layoutEmpty = view.findViewById(R.id.layout_empty);
         layoutBottomBar = view.findViewById(R.id.layout_bottom_bar);
         textTotalPrice = view.findViewById(R.id.text_total_price);
         btnCheckout = view.findViewById(R.id.btn_checkout);
         
-        // 设置 RecyclerView
+        // Setup RecyclerView
         adapter = new CartAdapter();
         adapter.setOnItemClickListener(this);
         recyclerCart.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerCart.setAdapter(adapter);
         
-        // 初始化 ViewModel
+        // Initialize ViewModel
         viewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
         
-        // 观察购物车数据
+        // Observe cart data
         viewModel.getCartItems().observe(getViewLifecycleOwner(), cartItems -> {
             if (cartItems != null && !cartItems.isEmpty()) {
                 adapter.setCartItems(cartItems);
@@ -76,7 +76,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
                 layoutEmpty.setVisibility(View.GONE);
                 layoutBottomBar.setVisibility(View.VISIBLE);
                 
-                // 计算总价
+                // Calculate total price
                 double totalPrice = calculateTotal(cartItems);
                 textTotalPrice.setText(String.format("¥%.1f", totalPrice));
             } else {
@@ -86,7 +86,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
             }
         });
         
-        // 去结算按钮点击
+        // Checkout button click
         btnCheckout.setOnClickListener(v -> {
             navController.navigate(R.id.action_cart_fragment_to_checkout_fragment);
         });

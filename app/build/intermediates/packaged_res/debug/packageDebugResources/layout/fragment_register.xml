@@ -14,12 +14,12 @@
         android:padding="32dp"
         android:gravity="center_horizontal">
 
-        <!-- 标题区域 -->
+        <!-- Title Area -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="注册账号"
+            android:text="@string/register_title"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#FF6B35" />
@@ -28,11 +28,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="创建您的外卖账号"
+            android:text="@string/register_subtitle"
             android:textSize="14sp"
             android:textColor="#999999" />
 
-        <!-- 注册表单区域 -->
+        <!-- Register Form Area -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,12 +46,12 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- 手机号输入框 -->
+                <!-- Phone Number Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/register_phone_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="手机号"
+                    android:hint="@string/login_phone_hint"
                     app:startIconDrawable="@drawable/ic_profile"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -64,13 +64,13 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- 密码输入框 -->
+                <!-- Password Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/register_password_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="设置密码"
+                    android:hint="@string/register_set_password"
                     app:startIconDrawable="@drawable/ic_cart"
                     app:endIconMode="password_toggle"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -83,13 +83,13 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- 确认密码输入框 -->
+                <!-- Confirm Password Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/register_confirm_password_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="确认密码"
+                    android:hint="@string/register_confirm_password"
                     app:endIconMode="password_toggle"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -101,19 +101,19 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- 注册按钮 -->
+                <!-- Register Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/register_button"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginTop="32dp"
-                    android:text="注册"
+                    android:text="@string/register_button"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:cornerRadius="8dp"
                     android:backgroundTint="#FF6B35" />
 
-                <!-- 返回登录链接 -->
+                <!-- Back to Login Link -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="已有账号？"
+                        android:text="@string/register_has_account"
                         android:textSize="14sp"
                         android:textColor="#666666" />
 
@@ -133,7 +133,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="返回登录"
+                        android:text="@string/register_back_to_login"
                         android:textSize="14sp"
                         android:textColor="#FF6B35"
                         android:textStyle="bold"

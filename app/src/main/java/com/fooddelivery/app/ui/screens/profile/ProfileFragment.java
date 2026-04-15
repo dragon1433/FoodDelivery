@@ -11,14 +11,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import com.bumptech.glide.Glide;
 import com.fooddelivery.app.R;
+import com.fooddelivery.app.data.model.User;
 import com.fooddelivery.app.ui.screens.address.AddressFragment;
-
-import java.util.Random;
+import com.fooddelivery.app.ui.viewmodels.UserViewModel;
 
 /**
- * 个人中心 Fragment
+ * Profile Fragment - Display current user information
  */
 public class ProfileFragment extends Fragment {
     
@@ -32,6 +34,9 @@ public class ProfileFragment extends Fragment {
     private LinearLayout layoutCoupons;
     private LinearLayout layoutVip;
     private LinearLayout layoutCustomerService;
+    private LinearLayout layoutLogout;
+    
+    private UserViewModel userViewModel;
     
     @Nullable
     @Override
@@ -45,7 +50,10 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
-        // 初始化视图
+        // Initialize ViewModel
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        
+        // Initialize views
         imageAvatar = view.findViewById(R.id.image_avatar);
         textUsername = view.findViewById(R.id.text_username);
         textPhone = view.findViewById(R.id.text_phone);
@@ -56,61 +64,159 @@ public class ProfileFragment extends Fragment {
         layoutCoupons = view.findViewById(R.id.layout_coupons);
         layoutVip = view.findViewById(R.id.layout_vip);
         layoutCustomerService = view.findViewById(R.id.layout_customer_service);
+        layoutLogout = view.findViewById(R.id.layout_logout);
         
-        // 生成随机用户信息
-        String[] usernames = {"张三", "李四", "王五", "赵六", "钱七", "孙八", "周九", "吴十"};
-        String[] phones = {"138****1234", "139****5678", "186****9012", "185****3456", "137****7890"};
+        // Observe current user and display real user info
+        userViewModel.getCurrentUser().observe(getViewLifecycleOwner(), user -> {
+            if (user != null) {
+                // Display registered user information
+                textUsername.setText(user.getName());
+                // Mask phone number for privacy: 138****1234
+                String maskedPhone = maskPhoneNumber(user.getPhone());
+                textPhone.setText(maskedPhone);
+                
+                // Load real avatar image from Unsplash
+                Glide.with(this)
+                    .load("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200")
+                    .circleCrop()
+                    .placeholder(R.drawable.ic_profile)
+                    .into(imageAvatar);
+                
+                // Show logout button when user is logged in
+                layoutLogout.setVisibility(View.VISIBLE);
+            } else {
+                // If no user logged in, show default
+                textUsername.setText("Guest");
+                textPhone.setText("Not logged in");
+                
+                // Load default avatar
+                Glide.with(this)
+                    .load("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200")
+                    .circleCrop()
+                    .placeholder(R.drawable.ic_profile)
+                    .into(imageAvatar);
+                
+                // Hide logout button when not logged in
+                layoutLogout.setVisibility(View.GONE);
+            }
+        });
         
-        Random random = new Random();
-        String randomUsername = usernames[random.nextInt(usernames.length)];
-        String randomPhone = phones[random.nextInt(phones.length)];
-        
-        textUsername.setText(randomUsername);
-        textPhone.setText(randomPhone);
-        
-        // 我的订单点击 - 切换到订单 Tab
+        // My Orders click - switch to orders tab
         layoutMyOrders.setOnClickListener(v -> {
             if (getActivity() != null) {
-                // 通过底部导航切换到订单页面
+                // Switch to orders page via bottom navigation
                 com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = 
                     getActivity().findViewById(R.id.bottom_navigation);
                 bottomNav.setSelectedItemId(R.id.orderFragment);
             }
         });
         
-        // 地址管理点击
+        // Address management click
         layoutAddress.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_profile_fragment_to_address_fragment);
         });
         
-        // 购物车点击 - 切换到购物车 Tab
+        // Shopping cart click - switch to cart tab
         layoutShoppingCart.setOnClickListener(v -> {
             if (getActivity() != null) {
-                // 通过底部导航切换到购物车页面
+                // Switch to cart page via bottom navigation
                 com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = 
                     getActivity().findViewById(R.id.bottom_navigation);
                 bottomNav.setSelectedItemId(R.id.cartFragment);
             }
         });
         
-        // 设置点击
+        // Settings click
         layoutSettings.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "设置功能开发中...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Settings coming soon...", Toast.LENGTH_SHORT).show();
         });
         
-        // 优惠券/红包点击
+        // Coupons/Red packets click
         layoutCoupons.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "优惠券功能开发中...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Coupons coming soon...", Toast.LENGTH_SHORT).show();
         });
         
-        // 会员中心点击
+        // VIP membership click
         layoutVip.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "会员中心功能开发中...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "VIP membership coming soon...", Toast.LENGTH_SHORT).show();
         });
         
-        // 客服与帮助点击
+        // Customer service & help click
         layoutCustomerService.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "客服与帮助功能开发中...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Customer service coming soon...", Toast.LENGTH_SHORT).show();
         });
+        
+        // Logout click
+        layoutLogout.setOnClickListener(v -> {
+            showLogoutConfirmationDialog();
+        });
+    }
+    
+    // Mask phone number for privacy: 13812345678 -> 138****5678
+    private String maskPhoneNumber(String phone) {
+        if (phone == null || phone.length() < 7) {
+            return phone;
+        }
+        return phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4);
+    }
+    
+    // Show logout confirmation dialog
+    private void showLogoutConfirmationDialog() {
+        new android.app.AlertDialog.Builder(getContext())
+            .setTitle(R.string.profile_logout_confirm_title)
+            .setMessage(R.string.profile_logout_confirm_message)
+            .setPositiveButton(R.string.profile_logout, (dialog, which) -> {
+                performLogout();
+            })
+            .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                dialog.dismiss();
+            })
+            .show();
+    }
+    
+    // Perform logout
+    private void performLogout() {
+        User currentUser = userViewModel.getCurrentUser().getValue();
+        if (currentUser != null) {
+            userViewModel.logout(currentUser.getId(), new UserViewModel.LogoutCallback() {
+                @Override
+                public void onSuccess() {
+                    requireActivity().runOnUiThread(() -> {
+                        Toast.makeText(getContext(), R.string.profile_logout_success, Toast.LENGTH_SHORT).show();
+                        
+                        // Clear user session
+                        clearUserSession();
+                        
+                        // Navigate to login page using NavUtils
+                        androidx.navigation.NavController navController = Navigation.findNavController(requireView());
+                        
+                        // Pop all fragments from back stack
+                        navController.popBackStack(R.id.loginFragment, false);
+                        
+                        // If still not at login, navigate to it
+                        if (navController.getCurrentDestination() != null && 
+                            navController.getCurrentDestination().getId() != R.id.loginFragment) {
+                            navController.navigate(R.id.loginFragment);
+                        }
+                    });
+                }
+                
+                @Override
+                public void onError(String message) {
+                    requireActivity().runOnUiThread(() -> {
+                        Toast.makeText(getContext(), getString(R.string.profile_logout_failed) + ": " + message, Toast.LENGTH_SHORT).show();
+                    });
+                }
+            });
+        }
+    }
+    
+    // Clear user session only
+    private void clearUserSession() {
+        if (getActivity() != null) {
+            android.content.SharedPreferences sessionPrefs = getActivity().getSharedPreferences(
+                "user_session", getActivity().MODE_PRIVATE);
+            sessionPrefs.edit().clear().apply();
+        }
     }
 }

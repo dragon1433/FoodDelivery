@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- 搜索栏 -->
+    <!-- Search Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +22,8 @@
             android:layout_height="40dp"
             android:src="@drawable/ic_back"
             android:padding="10dp"
-            android:layout_marginRight="8dp"
-            android:contentDescription="返回" />
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/back" />
 
         <EditText
             android:id="@+id/edit_search"
@@ -31,12 +31,13 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@drawable/search_background"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:hint="搜索餐厅或菜品"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:hint="@string/home_search_hint"
             android:textSize="14sp"
             android:maxLines="1"
-            android:inputType="text" />
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
 
         <ImageView
             android:id="@+id/btn_clear"
@@ -44,11 +45,12 @@
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             android:padding="10dp"
-            android:layout_marginLeft="8dp"
-            android:contentDescription="清空" />
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            android:contentDescription="@string/cart_clear" />
     </LinearLayout>
 
-    <!-- 搜索结果 -->
+    <!-- Search Results -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,12 +61,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 餐厅搜索结果 -->
+            <!-- Restaurant Search Results -->
             <TextView
                 android:id="@+id/text_restaurant_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="相关餐厅"
+                android:text="Related Restaurants"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="16dp" />
@@ -75,12 +77,12 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="false" />
 
-            <!-- 菜品搜索结果 -->
+            <!-- Dish Search Results -->
             <TextView
                 android:id="@+id/text_dish_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="相关菜品"
+                android:text="Related Dishes"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="16dp" />

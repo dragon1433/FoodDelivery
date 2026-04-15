@@ -26,6 +26,8 @@ import javax.annotation.processing.Generated;
 @Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class AppDatabase_Impl extends AppDatabase {
+  private volatile UserDao _userDao;
+
   private volatile RestaurantDao _restaurantDao;
 
   private volatile DishDao _dishDao;
@@ -39,20 +41,22 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(5) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(8) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `phone` TEXT, `password` TEXT, `name` TEXT, `avatar` TEXT, `createTime` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `restaurants` (`id` INTEGER NOT NULL, `name` TEXT, `englishName` TEXT, `imageUrl` TEXT, `rating` REAL NOT NULL, `monthlySales` INTEGER NOT NULL, `deliveryTime` TEXT, `deliveryFee` REAL NOT NULL, `minPrice` REAL NOT NULL, `distance` REAL NOT NULL, `categories` TEXT, `description` TEXT, `isFavorite` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `dishes` (`id` INTEGER NOT NULL, `restaurantId` INTEGER NOT NULL, `name` TEXT, `description` TEXT, `imageUrl` TEXT, `price` REAL NOT NULL, `originalPrice` REAL, `categoryName` TEXT, `monthSales` INTEGER NOT NULL, `stock` INTEGER NOT NULL, `isRecommended` INTEGER NOT NULL, `packingFee` REAL NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `cart_items` (`id` INTEGER NOT NULL, `dishId` INTEGER NOT NULL, `restaurantId` INTEGER NOT NULL, `name` TEXT, `price` REAL NOT NULL, `packingFee` REAL NOT NULL, `imageUrl` TEXT, `quantity` INTEGER NOT NULL, `categoryName` TEXT, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `addresses` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `phone` TEXT, `detailAddress` TEXT, `province` TEXT, `city` TEXT, `district` TEXT, `street` TEXT, `buildingInfo` TEXT, `floorInfo` TEXT, `doorplateInfo` TEXT, `addressTag` TEXT, `isDefault` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `orders` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `orderNo` TEXT, `restaurantId` INTEGER NOT NULL, `restaurantName` TEXT, `totalAmount` REAL NOT NULL, `deliveryFee` REAL NOT NULL, `packingFee` REAL NOT NULL, `discountAmount` REAL NOT NULL, `actualAmount` REAL NOT NULL, `status` TEXT, `createTime` INTEGER, `payTime` INTEGER, `deliveryTime` INTEGER, `completeTime` INTEGER, `addressId` INTEGER NOT NULL, `addressDetail` TEXT, `receiverName` TEXT, `receiverPhone` TEXT, `items` TEXT, `riderName` TEXT, `riderPhone` TEXT, `estimatedDeliveryTime` TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `orders` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `orderNo` TEXT, `restaurantId` INTEGER NOT NULL, `restaurantName` TEXT, `totalAmount` REAL NOT NULL, `deliveryFee` REAL NOT NULL, `packingFee` REAL NOT NULL, `discountAmount` REAL NOT NULL, `actualAmount` REAL NOT NULL, `status` TEXT, `createTime` INTEGER, `payTime` INTEGER, `deliveryTime` INTEGER, `completeTime` INTEGER, `addressId` INTEGER NOT NULL, `addressDetail` TEXT, `receiverName` TEXT, `receiverPhone` TEXT, `items` TEXT, `riderName` TEXT, `riderPhone` TEXT, `estimatedDeliveryTime` TEXT, `rating` REAL NOT NULL, `reviewComment` TEXT, `reviewTime` INTEGER)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '90ecd7d7ebcb25426ccf23bc70f61193')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '63002ec4797978f7efcdc1cc5639d73a')");
       }
 
       @Override
       public void dropAllTables(@NonNull final SupportSQLiteDatabase db) {
+        db.execSQL("DROP TABLE IF EXISTS `users`");
         db.execSQL("DROP TABLE IF EXISTS `restaurants`");
         db.execSQL("DROP TABLE IF EXISTS `dishes`");
         db.execSQL("DROP TABLE IF EXISTS `cart_items`");
@@ -101,6 +105,22 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
+        final HashMap<String, TableInfo.Column> _columnsUsers = new HashMap<String, TableInfo.Column>(6);
+        _columnsUsers.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("phone", new TableInfo.Column("phone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("password", new TableInfo.Column("password", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("avatar", new TableInfo.Column("avatar", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("createTime", new TableInfo.Column("createTime", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysUsers = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesUsers = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoUsers = new TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers);
+        final TableInfo _existingUsers = TableInfo.read(db, "users");
+        if (!_infoUsers.equals(_existingUsers)) {
+          return new RoomOpenHelper.ValidationResult(false, "users(com.fooddelivery.app.data.model.User).\n"
+                  + " Expected:\n" + _infoUsers + "\n"
+                  + " Found:\n" + _existingUsers);
+        }
         final HashMap<String, TableInfo.Column> _columnsRestaurants = new HashMap<String, TableInfo.Column>(13);
         _columnsRestaurants.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsRestaurants.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -190,8 +210,9 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoAddresses + "\n"
                   + " Found:\n" + _existingAddresses);
         }
-        final HashMap<String, TableInfo.Column> _columnsOrders = new HashMap<String, TableInfo.Column>(22);
+        final HashMap<String, TableInfo.Column> _columnsOrders = new HashMap<String, TableInfo.Column>(26);
         _columnsOrders.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsOrders.put("userId", new TableInfo.Column("userId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsOrders.put("orderNo", new TableInfo.Column("orderNo", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsOrders.put("restaurantId", new TableInfo.Column("restaurantId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsOrders.put("restaurantName", new TableInfo.Column("restaurantName", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -213,6 +234,9 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsOrders.put("riderName", new TableInfo.Column("riderName", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsOrders.put("riderPhone", new TableInfo.Column("riderPhone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsOrders.put("estimatedDeliveryTime", new TableInfo.Column("estimatedDeliveryTime", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsOrders.put("rating", new TableInfo.Column("rating", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsOrders.put("reviewComment", new TableInfo.Column("reviewComment", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsOrders.put("reviewTime", new TableInfo.Column("reviewTime", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysOrders = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesOrders = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoOrders = new TableInfo("orders", _columnsOrders, _foreignKeysOrders, _indicesOrders);
@@ -224,7 +248,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "90ecd7d7ebcb25426ccf23bc70f61193", "4a02a652f3bbd8ebe7b809113cefdb40");
+    }, "63002ec4797978f7efcdc1cc5639d73a", "a7d255b7142e3fdfe3649679f0a6d5a5");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
@@ -235,7 +259,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     final HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "restaurants","dishes","cart_items","addresses","orders");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","restaurants","dishes","cart_items","addresses","orders");
   }
 
   @Override
@@ -244,6 +268,7 @@ public final class AppDatabase_Impl extends AppDatabase {
     final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
     try {
       super.beginTransaction();
+      _db.execSQL("DELETE FROM `users`");
       _db.execSQL("DELETE FROM `restaurants`");
       _db.execSQL("DELETE FROM `dishes`");
       _db.execSQL("DELETE FROM `cart_items`");
@@ -263,6 +288,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   @NonNull
   protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
+    _typeConvertersMap.put(UserDao.class, UserDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(RestaurantDao.class, RestaurantDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(DishDao.class, DishDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(CartDao.class, CartDao_Impl.getRequiredConverters());
@@ -284,6 +310,20 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull final Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> autoMigrationSpecs) {
     final List<Migration> _autoMigrations = new ArrayList<Migration>();
     return _autoMigrations;
+  }
+
+  @Override
+  public UserDao userDao() {
+    if (_userDao != null) {
+      return _userDao;
+    } else {
+      synchronized(this) {
+        if(_userDao == null) {
+          _userDao = new UserDao_Impl(this);
+        }
+        return _userDao;
+      }
+    }
   }
 
   @Override

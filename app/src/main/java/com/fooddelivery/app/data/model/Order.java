@@ -1,14 +1,17 @@
 package com.fooddelivery.app.data.model;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity(tableName = "orders")
-public class Order {
+public class Order implements Serializable {
     @PrimaryKey(autoGenerate = true) 
     private long id;
+    private long userId;
     private String orderNo;
     private long restaurantId;
     private String restaurantName;
@@ -30,19 +33,24 @@ public class Order {
     private String riderName;
     private String riderPhone;
     private String estimatedDeliveryTime;
+    private float rating;
+    private String reviewComment;
+    private Date reviewTime;
     
-    // 无参构造函数
+    // No-arg constructor for Room
     public Order() {}
     
-    // 辅助方法，用于获取订单时间（兼容旧代码）
+    // Helper method for backward compatibility
     public Date getOrderTime() {
         return createTime;
     }
     
     public void setOrderTime(String orderTime) {
-        // 这个方法保留用于兼容，实际不使用
+        // This method is kept for compatibility, not actually used
     }
 
+    // Full constructor - ignored by Room
+    @Ignore
     public Order(long id, String orderNo, long restaurantId, String restaurantName,
                  double totalAmount, double deliveryFee, double packingFee, double discountAmount,
                  double actualAmount, OrderStatus status, Date createTime, Date payTime,
@@ -75,6 +83,9 @@ public class Order {
 
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
+    
+    public long getUserId() { return userId; }
+    public void setUserId(long userId) { this.userId = userId; }
     
     public String getOrderNo() { return orderNo; }
     public void setOrderNo(String orderNo) { this.orderNo = orderNo; }
@@ -138,4 +149,13 @@ public class Order {
     
     public String getEstimatedDeliveryTime() { return estimatedDeliveryTime; }
     public void setEstimatedDeliveryTime(String estimatedDeliveryTime) { this.estimatedDeliveryTime = estimatedDeliveryTime; }
+    
+    public float getRating() { return rating; }
+    public void setRating(float rating) { this.rating = rating; }
+    
+    public String getReviewComment() { return reviewComment; }
+    public void setReviewComment(String reviewComment) { this.reviewComment = reviewComment; }
+    
+    public Date getReviewTime() { return reviewTime; }
+    public void setReviewTime(Date reviewTime) { this.reviewTime = reviewTime; }
 }

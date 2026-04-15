@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 标题栏 -->
+    <!-- Toolbar -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,12 +18,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我的订单"
+            android:text="@string/profile_my_order"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- 空订单提示 -->
+    <!-- Empty Order Message -->
     <LinearLayout
         android:id="@+id/layout_empty"
         android:layout_width="match_parent"
@@ -37,17 +37,17 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/ic_home"
-            android:contentDescription="空订单" />
+            android:contentDescription="Empty orders" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="暂无订单"
+            android:text="@string/empty_data"
             android:textSize="16sp"
             android:layout_marginTop="16dp" />
     </LinearLayout>
 
-    <!-- 订单列表 -->
+    <!-- Order List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_orders"
         android:layout_width="match_parent"

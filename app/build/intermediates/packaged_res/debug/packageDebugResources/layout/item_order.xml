@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- 订单头部 -->
+        <!-- Order Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="餐厅名称"
+                android:text="@string/empty_data"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -32,22 +32,22 @@
                 android:id="@+id/text_order_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="已完成"
+                android:text="@string/order_status_completed"
                 android:textSize="14sp"
                 android:textColor="#4CAF50" />
         </LinearLayout>
 
-        <!-- 订单商品信息 -->
+        <!-- Order Items -->
         <TextView
             android:id="@+id/text_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="宫保鸡丁 x2, 米饭 x1"
+            android:text="@string/order_no_items"
             android:textSize="14sp"
             android:textColor="#666666"
             android:layout_marginTop="8dp" />
 
-        <!-- 订单金额和时间 -->
+        <!-- Order Amount and Time -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="¥56.00"
+                android:text="¥0.00"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#FF6B35" />
@@ -68,9 +68,39 @@
                 android:id="@+id/text_order_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2024-01-01 12:30"
+                android:text="@string/order_unknown_time"
                 android:textSize="12sp"
                 android:textColor="#999999" />
+        </LinearLayout>
+        
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btn_review_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Review"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#FF6B35"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+            <Button
+                android:id="@+id/btn_delete_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_delete"
+                android:textSize="12sp"
+                android:backgroundTint="#F44336"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

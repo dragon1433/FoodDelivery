@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.fooddelivery.app.R;
+import com.fooddelivery.app.data.model.Address;
 import com.fooddelivery.app.data.model.CartItem;
 import com.fooddelivery.app.data.model.Order;
 import com.fooddelivery.app.data.model.OrderItem;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * 结算页面 Fragment
+ * Checkout Fragment - Order submission page
  */
 public class CheckoutFragment extends Fragment {
     
@@ -50,31 +51,20 @@ public class CheckoutFragment extends Fragment {
     
     private CartViewModel cartViewModel;
     private OrderViewModel orderViewModel;
+    private AddressViewModel addressViewModel;
     private CartAdapter adapter;
     private NavController navController;
     
     private double deliveryFee = 5.0;
     private String selectedAddress = "";
+    private String receiverName = "";
+    private String receiverPhone = "";
+    private long selectedAddressId = -1;
     
     @Override
     public void onResume() {
         super.onResume();
-        // 重新加载地址
-        loadSelectedAddress();
-    }
-    
-    private void loadSelectedAddress() {
-        // 从 AddressViewModel 获取已选择的地址
-        AddressViewModel addressViewModel = new ViewModelProvider(requireActivity()).get(AddressViewModel.class);
-        addressViewModel.getAddresses().observe(getViewLifecycleOwner(), addresses -> {
-            if (addresses != null && !addresses.isEmpty()) {
-                // 使用第一个地址作为默认地址
-                selectedAddress = addresses.get(0).getDetailAddress();
-                textAddress.setText(selectedAddress);
-            } else {
-                textAddress.setText("请选择配送地址");
-            }
-        });
+        // Address will be updated automatically by LiveData observer
     }
     
     @Nullable
@@ -89,10 +79,10 @@ public class CheckoutFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
-        // 初始化导航
+        // Initialize navigation
         navController = Navigation.findNavController(view);
         
-        // 初始化视图
+        // Initialize views
         btnBack = view.findViewById(R.id.btn_back);
         textAddress = view.findViewById(R.id.text_address);
         btnSelectAddress = view.findViewById(R.id.btn_select_address);
@@ -104,32 +94,84 @@ public class CheckoutFragment extends Fragment {
         textPayTotal = view.findViewById(R.id.text_pay_total);
         btnSubmitOrder = view.findViewById(R.id.btn_submit_order);
         
-        // 设置返回按钮
+        // Setup back button
         btnBack.setOnClickListener(v -> {
             requireActivity().onBackPressed();
         });
         
-        // 选择地址
+        // Select address
         btnSelectAddress.setOnClickListener(v -> {
-            // 打开地址选择页面
+            // Open address selection page
             navController.navigate(R.id.action_checkoutFragment_to_addressFragment);
         });
         
-        // 设置购物车列表
+        // Setup cart items list
         adapter = new CartAdapter();
         recyclerCartItems.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerCartItems.setAdapter(adapter);
         
-        // 初始化 ViewModel
+        // Initialize ViewModel
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
         orderViewModel = new ViewModelProvider(requireActivity()).get(OrderViewModel.class);
+        addressViewModel = new ViewModelProvider(requireActivity()).get(AddressViewModel.class);
         
-        // 加载购物车数据
+        // Observe selected address changes
+        addressViewModel.getAddresses().observe(getViewLifecycleOwner(), addresses -> {
+            if (addresses != null && !addresses.isEmpty()) {
+                // Find the default address
+                Address defaultAddress = null;
+                for (Address addr : addresses) {
+                    if (addr.isDefault()) {
+                        defaultAddress = addr;
+                        break;
+                    }
+                }
+                
+                // If no default address, use the first one
+                if (defaultAddress == null) {
+                    defaultAddress = addresses.get(0);
+                }
+                
+                // 保存完整的地址信息
+                selectedAddressId = defaultAddress.getId();
+                receiverName = defaultAddress.getName() != null ? defaultAddress.getName() : "";
+                receiverPhone = defaultAddress.getPhone() != null ? defaultAddress.getPhone() : "";
+                selectedAddress = defaultAddress.getDetailAddress() != null ? defaultAddress.getDetailAddress() : "";
+                
+                // 显示地址信息（包含姓名和电话）
+                StringBuilder addressDisplay = new StringBuilder();
+                if (!receiverName.isEmpty()) {
+                    addressDisplay.append(receiverName);
+                }
+                if (!receiverPhone.isEmpty()) {
+                    if (addressDisplay.length() > 0) {
+                        addressDisplay.append("  ");
+                    }
+                    addressDisplay.append(receiverPhone);
+                }
+                if (!selectedAddress.isEmpty()) {
+                    if (addressDisplay.length() > 0) {
+                        addressDisplay.append("\n");
+                    }
+                    addressDisplay.append(selectedAddress);
+                }
+                
+                textAddress.setText(addressDisplay.toString());
+            } else {
+                textAddress.setText("Please select delivery address");
+                selectedAddress = "";
+                receiverName = "";
+                receiverPhone = "";
+                selectedAddressId = -1;
+            }
+        });
+        
+        // Load cart data
         cartViewModel.getCartItems().observe(getViewLifecycleOwner(), cartItems -> {
             if (cartItems != null && !cartItems.isEmpty()) {
                 adapter.setCartItems(cartItems);
                 
-                // 计算费用
+                // Calculate fees
                 double foodTotal = calculateFoodTotal(cartItems);
                 double totalPrice = foodTotal + deliveryFee;
                 
@@ -138,12 +180,12 @@ public class CheckoutFragment extends Fragment {
                 textTotalPrice.setText(String.format("¥%.1f", totalPrice));
                 textPayTotal.setText(String.format("¥%.1f", totalPrice));
             } else {
-                Toast.makeText(getContext(), "购物车为空", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Cart is empty", Toast.LENGTH_SHORT).show();
                 requireActivity().onBackPressed();
             }
         });
         
-        // 提交订单
+        // Submit order
         btnSubmitOrder.setOnClickListener(v -> {
             submitOrder();
         });
@@ -160,23 +202,34 @@ public class CheckoutFragment extends Fragment {
     private void submitOrder() {
         List<CartItem> cartItems = cartViewModel.getCartItems().getValue();
         if (cartItems == null || cartItems.isEmpty()) {
-            Toast.makeText(getContext(), "购物车为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Cart is empty", Toast.LENGTH_SHORT).show();
             return;
         }
         
-        // 创建订单
+        // 获取当前用户ID
+        android.content.SharedPreferences prefs = requireActivity().getSharedPreferences("user_session", 
+            requireActivity().MODE_PRIVATE);
+        long currentUserId = prefs.getLong("current_user_id", -1);
+        
+        if (currentUserId <= 0) {
+            Toast.makeText(getContext(), "Please login first", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        // Create order
         Order order = new Order();
         order.setId(System.currentTimeMillis());
+        order.setUserId(currentUserId);  // 设置用户ID
         
-        // 设置餐厅信息（假设所有商品来自同一家餐厅）
+        // Set restaurant info (assume all items from same restaurant)
         Long restaurantId = cartItems.get(0).getRestaurantId();
         order.setRestaurantId(restaurantId);
         
-        // 根据 restaurantId 设置餐厅名称
+        // Get restaurant name by restaurantId
         String restaurantName = getRestaurantNameById(restaurantId);
-        order.setRestaurantName(restaurantName != null ? restaurantName : "未知餐厅");
+        order.setRestaurantName(restaurantName != null ? restaurantName : "Unknown Restaurant");
         
-        // 创建订单商品
+        // Create order items
         List<OrderItem> orderItems = new ArrayList<>();
         for (CartItem item : cartItems) {
             OrderItem orderItem = new OrderItem();
@@ -193,38 +246,43 @@ public class CheckoutFragment extends Fragment {
         order.setTotalAmount(foodTotal + deliveryFee);
         order.setDeliveryFee(deliveryFee);
         order.setStatus(OrderStatus.PAID);
-        order.setAddressDetail(selectedAddress.isEmpty() ? "未选择配送地址" : selectedAddress);
         
-        // 保存订单
+        // 保存完整的地址信息到订单
+        order.setAddressId(selectedAddressId);
+        order.setAddressDetail(selectedAddress.isEmpty() ? "No delivery address selected" : selectedAddress);
+        order.setReceiverName(receiverName.isEmpty() ? "Unknown" : receiverName);
+        order.setReceiverPhone(receiverPhone.isEmpty() ? "N/A" : receiverPhone);
+        
+        // Save order
         orderViewModel.addOrder(order);
         
-        // 清空购物车
+        // Clear cart
         for (CartItem item : cartItems) {
             cartViewModel.removeFromCart(item);
         }
         
-        Toast.makeText(getContext(), "订单提交成功", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Order submitted successfully", Toast.LENGTH_SHORT).show();
         
-        // 返回到订单页面
+        // Return to orders page
         navController.popBackStack();
     }
     
     /**
-     * 根据餐厅 ID 获取餐厅名称
+     * Get restaurant name by ID
      */
     private String getRestaurantNameById(Long restaurantId) {
-        // 从 Mock 数据中获取餐厅名称映射
+        // Get restaurant name mapping from Mock data
         switch (restaurantId.intValue()) {
             case 1:
-                return "麦当劳";
+                return "McDonald's";
             case 2:
-                return "肯德基";
+                return "KFC";
             case 3:
-                return "必胜客";
+                return "Pizza Hut";
             case 4:
-                return "海底捞火锅";
+                return "Haidilao Hot Pot";
             case 5:
-                return "星巴克";
+                return "Starbucks";
             default:
                 return null;
         }

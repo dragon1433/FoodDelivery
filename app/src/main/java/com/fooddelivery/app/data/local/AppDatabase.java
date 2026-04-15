@@ -10,20 +10,23 @@ import com.fooddelivery.app.data.model.CartItem;
 import com.fooddelivery.app.data.model.Dish;
 import com.fooddelivery.app.data.model.Order;
 import com.fooddelivery.app.data.model.Restaurant;
+import com.fooddelivery.app.data.model.User;
 
 @Database(
     entities = {
+        User.class,
         Restaurant.class,
         Dish.class,
         CartItem.class,
         Address.class,
         Order.class
     },
-    version = 5,  // 从 4 升级到 5，因为 Restaurant 表添加了 englishName 字段
+    version = 8,  // Upgrade to 8, added userId to Order
     exportSchema = false
 )
 @TypeConverters(Converters.class)
 public abstract class AppDatabase extends RoomDatabase {
+    public abstract UserDao userDao();
     public abstract RestaurantDao restaurantDao();
     public abstract DishDao dishDao();
     public abstract CartDao cartDao();

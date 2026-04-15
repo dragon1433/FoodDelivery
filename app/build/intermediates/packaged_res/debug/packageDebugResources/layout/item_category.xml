@@ -11,13 +11,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:tag="category_icon"
-        android:contentDescription="分类图标" />
+        android:contentDescription="Category icon" />
 
     <TextView
         android:id="@+id/text_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="分类"
+        android:text="Category"
         android:textSize="12sp"
         android:layout_marginTop="4dp"
         android:maxLines="1"

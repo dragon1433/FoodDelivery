@@ -42,6 +42,9 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
     private RestaurantAdapter restaurantAdapter;
     private DishAdapter dishAdapter;
     
+    private List<Restaurant> allRestaurants = new ArrayList<>();
+    private List<Dish> allDishes = new ArrayList<>();
+    
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, 
@@ -84,9 +87,19 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
         restaurantViewModel = new ViewModelProvider(requireActivity()).get(RestaurantViewModel.class);
         dishViewModel = new ViewModelProvider(requireActivity()).get(DishViewModel.class);
         
+        // 加载所有餐厅数据
+        restaurantViewModel.getAllRestaurants().observe(getViewLifecycleOwner(), restaurants -> {
+            if (restaurants != null) {
+                allRestaurants = restaurants;
+                // 同时加载所有菜品
+                loadAllDishes();
+            }
+        });
+        
         // 清空按钮点击
         btnClear.setOnClickListener(v -> {
             editSearch.setText("");
+            btnClear.setVisibility(View.GONE);
         });
         
         // 返回按钮点击
@@ -103,11 +116,17 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String query = s.toString().trim();
+                
+                // 显示/隐藏清除按钮
+                btnClear.setVisibility(query.isEmpty() ? View.GONE : View.VISIBLE);
+                
                 if (query.isEmpty()) {
+                    textRestaurantTitle.setVisibility(View.GONE);
                     recyclerRestaurants.setVisibility(View.GONE);
+                    textDishTitle.setVisibility(View.GONE);
                     recyclerDishes.setVisibility(View.GONE);
                 } else {
-                    search(query);
+                    performSearch(query);
                 }
             }
             
@@ -116,61 +135,73 @@ public class SearchFragment extends Fragment implements RestaurantAdapter.OnItem
         });
     }
     
-    private void search(String query) {
-        // 搜索餐厅
-        restaurantViewModel.getAllRestaurants().observe(getViewLifecycleOwner(), restaurants -> {
-            if (restaurants != null) {
-                List<Restaurant> filteredRestaurants = new ArrayList<>();
-                for (Restaurant restaurant : restaurants) {
-                    // 支持中文名、英文名和描述搜索
-                    if (restaurant.getName().contains(query) || 
-                        (restaurant.getEnglishName() != null && restaurant.getEnglishName().toLowerCase().contains(query.toLowerCase())) ||
-                        restaurant.getDescription().contains(query) ||
-                        restaurant.getCategories().contains(query)) {
-                        filteredRestaurants.add(restaurant);
+    /**
+     * Load all dishes from all restaurants
+     */
+    private void loadAllDishes() {
+        allDishes.clear();
+        for (Restaurant restaurant : allRestaurants) {
+            dishViewModel.getDishesByRestaurant(restaurant.getId()).observe(getViewLifecycleOwner(), dishes -> {
+                if (dishes != null) {
+                    // Remove old dishes from this restaurant
+                    allDishes.removeIf(dish -> dish.getRestaurantId() == restaurant.getId());
+                    // Add new dishes
+                    allDishes.addAll(dishes);
+                    
+                    // Re-perform search if there's a query
+                    String query = editSearch.getText().toString().trim();
+                    if (!query.isEmpty()) {
+                        performSearch(query);
                     }
                 }
-                
-                if (!filteredRestaurants.isEmpty()) {
-                    textRestaurantTitle.setVisibility(View.VISIBLE);
-                    recyclerRestaurants.setVisibility(View.VISIBLE);
-                    restaurantAdapter.setRestaurants(filteredRestaurants);
-                } else {
-                    textRestaurantTitle.setVisibility(View.GONE);
-                    recyclerRestaurants.setVisibility(View.GONE);
-                }
-            }
-        });
+            });
+        }
+    }
+    
+    /**
+     * Perform search with the given query
+     */
+    private void performSearch(String query) {
+        String lowerQuery = query.toLowerCase();
         
-        // 搜索菜品 - 遍历所有餐厅的菜品
-        restaurantViewModel.getAllRestaurants().observe(getViewLifecycleOwner(), restaurants -> {
-            if (restaurants != null) {
-                List<Dish> allDishes = new ArrayList<>();
-                for (Restaurant restaurant : restaurants) {
-                    List<Dish> dishes = dishViewModel.getDishesByRestaurant(restaurant.getId()).getValue();
-                    if (dishes != null) {
-                        allDishes.addAll(dishes);
-                    }
-                }
-                
-                List<Dish> filteredDishes = new ArrayList<>();
-                for (Dish dish : allDishes) {
-                    if (dish.getName().contains(query) || 
-                        dish.getDescription().contains(query)) {
-                        filteredDishes.add(dish);
-                    }
-                }
-                
-                if (!filteredDishes.isEmpty()) {
-                    textDishTitle.setVisibility(View.VISIBLE);
-                    recyclerDishes.setVisibility(View.VISIBLE);
-                    dishAdapter.setDishes(filteredDishes);
-                } else {
-                    textDishTitle.setVisibility(View.GONE);
-                    recyclerDishes.setVisibility(View.GONE);
-                }
+        // Search restaurants
+        List<Restaurant> filteredRestaurants = new ArrayList<>();
+        for (Restaurant restaurant : allRestaurants) {
+            // Support searching by name, English name, description, and categories
+            if ((restaurant.getName() != null && restaurant.getName().toLowerCase().contains(lowerQuery)) || 
+                (restaurant.getEnglishName() != null && restaurant.getEnglishName().toLowerCase().contains(lowerQuery)) ||
+                (restaurant.getDescription() != null && restaurant.getDescription().toLowerCase().contains(lowerQuery)) ||
+                (restaurant.getCategories() != null && restaurant.getCategories().toLowerCase().contains(lowerQuery))) {
+                filteredRestaurants.add(restaurant);
             }
-        });
+        }
+        
+        if (!filteredRestaurants.isEmpty()) {
+            textRestaurantTitle.setVisibility(View.VISIBLE);
+            recyclerRestaurants.setVisibility(View.VISIBLE);
+            restaurantAdapter.setRestaurants(filteredRestaurants);
+        } else {
+            textRestaurantTitle.setVisibility(View.GONE);
+            recyclerRestaurants.setVisibility(View.GONE);
+        }
+        
+        // Search dishes
+        List<Dish> filteredDishes = new ArrayList<>();
+        for (Dish dish : allDishes) {
+            if ((dish.getName() != null && dish.getName().toLowerCase().contains(lowerQuery)) || 
+                (dish.getDescription() != null && dish.getDescription().toLowerCase().contains(lowerQuery))) {
+                filteredDishes.add(dish);
+            }
+        }
+        
+        if (!filteredDishes.isEmpty()) {
+            textDishTitle.setVisibility(View.VISIBLE);
+            recyclerDishes.setVisibility(View.VISIBLE);
+            dishAdapter.setDishes(filteredDishes);
+        } else {
+            textDishTitle.setVisibility(View.GONE);
+            recyclerDishes.setVisibility(View.GONE);
+        }
     }
     
     @Override

@@ -1,6 +1,7 @@
 package com.fooddelivery.app.data.repository;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.fooddelivery.app.data.local.AppDatabase;
@@ -19,11 +20,20 @@ public class OrderRepository {
     private final OrderDao orderDao;
     private final ExecutorService executor;
     private final MutableLiveData<List<Order>> orders = new MutableLiveData<>();
+    private final SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "user_session";
+    private static final String KEY_CURRENT_USER_ID = "current_user_id";
     
     public OrderRepository(Context context) {
         AppDatabase database = AppDatabase.getDatabase(context);
         this.orderDao = database.orderDao();
         this.executor = Executors.newSingleThreadExecutor();
+        this.sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+    }
+    
+    // 获取当前用户ID
+    private long getCurrentUserId() {
+        return sharedPreferences.getLong(KEY_CURRENT_USER_ID, -1);
     }
     
     public LiveData<List<Order>> getAllOrders() {
@@ -33,7 +43,15 @@ public class OrderRepository {
     
     private void loadOrders() {
         executor.execute(() -> {
-            List<Order> orderList = orderDao.getAllOrders();
+            long userId = getCurrentUserId();
+            List<Order> orderList;
+            if (userId > 0) {
+                // 只查询当前用户的订单
+                orderList = orderDao.getOrdersByUserId(userId);
+            } else {
+                // 如果没有登录，返回空列表
+                orderList = new java.util.ArrayList<>();
+            }
             orders.postValue(orderList);
         });
     }
@@ -69,6 +87,13 @@ public class OrderRepository {
                 orderDao.update(order);
                 loadOrders();
             }
+        });
+    }
+    
+    public void deleteOrder(Order order) {
+        executor.execute(() -> {
+            orderDao.delete(order);
+            loadOrders();
         });
     }
 }

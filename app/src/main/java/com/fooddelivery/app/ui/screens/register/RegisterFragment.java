@@ -8,16 +8,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import com.fooddelivery.app.R;
 import com.fooddelivery.app.databinding.FragmentRegisterBinding;
+import com.fooddelivery.app.ui.viewmodels.UserViewModel;
 
 /**
- * 注册 Fragment - 简化版
+ * Register Fragment - Real Registration
  */
 public class RegisterFragment extends Fragment {
     
     private FragmentRegisterBinding binding;
+    private UserViewModel userViewModel;
 
     @Nullable
     @Override
@@ -30,14 +33,18 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        
+        // Initialize ViewModel
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        
         setupViews();
     }
 
     private void setupViews() {
-        // 注册按钮
+        // Register button
         binding.registerButton.setOnClickListener(v -> performRegister());
         
-        // 返回登录
+        // Back to login
         binding.backToLoginText.setOnClickListener(v -> {
             Navigation.findNavController(requireView()).popBackStack();
         });
@@ -51,7 +58,7 @@ public class RegisterFragment extends Fragment {
         String confirmPassword = binding.registerConfirmPasswordEditText.getText() != null ? 
                 binding.registerConfirmPasswordEditText.getText().toString().trim() : "";
         
-        // 验证手机号
+        // Validate phone
         if (phone.isEmpty()) {
             binding.registerPhoneInputLayout.setError(getString(R.string.login_error_phone_empty));
             return;
@@ -59,9 +66,9 @@ public class RegisterFragment extends Fragment {
             binding.registerPhoneInputLayout.setError(null);
         }
         
-        // 验证密码
+        // Validate password
         if (password.isEmpty()) {
-            binding.registerPasswordInputLayout.setError("请设置密码");
+            binding.registerPasswordInputLayout.setError("Please set password");
             return;
         } else {
             binding.registerPasswordInputLayout.setError(null);
@@ -72,9 +79,9 @@ public class RegisterFragment extends Fragment {
             return;
         }
         
-        // 验证确认密码
+        // Validate confirm password
         if (confirmPassword.isEmpty()) {
-            binding.registerConfirmPasswordInputLayout.setError("请确认密码");
+            binding.registerConfirmPasswordInputLayout.setError("Please confirm password");
             return;
         } else {
             binding.registerConfirmPasswordInputLayout.setError(null);
@@ -85,11 +92,38 @@ public class RegisterFragment extends Fragment {
             return;
         }
         
-        // TODO: 调用注册API
-        Toast.makeText(getContext(), R.string.register_success, Toast.LENGTH_SHORT).show();
+        // Show loading
+        binding.registerButton.setEnabled(false);
+        binding.registerButton.setText("Registering...");
         
-        // 返回登录页面
-        Navigation.findNavController(requireView()).popBackStack();
+        // Perform real registration (use phone last 4 digits as name)
+        String name;
+        if (phone.length() >= 4) {
+            name = "User_" + phone.substring(phone.length() - 4);
+        } else {
+            name = "User_" + phone;
+        }
+        
+        userViewModel.register(phone, password, name, new UserViewModel.RegisterCallback() {
+            @Override
+            public void onSuccess(com.fooddelivery.app.data.model.User user) {
+                requireActivity().runOnUiThread(() -> {
+                    Toast.makeText(getContext(), R.string.register_success, Toast.LENGTH_SHORT).show();
+                    
+                    // Navigate back to login
+                    Navigation.findNavController(requireView()).popBackStack();
+                });
+            }
+            
+            @Override
+            public void onError(String message) {
+                requireActivity().runOnUiThread(() -> {
+                    binding.registerButton.setEnabled(true);
+                    binding.registerButton.setText(getString(R.string.register_button));
+                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                });
+            }
+        });
     }
 
     @Override

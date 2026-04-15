@@ -8,176 +8,176 @@
 8        android:minSdkVersion="24"
 9        android:targetSdkVersion="34" />
 10
-11    <!-- 网络权限 -->
+11    <!-- Network Permissions -->
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:6:5-67
-12-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:6:22-64
+12-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:6:5-67
+12-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:6:22-64
 13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-13-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:7:5-79
-13-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:7:22-76
+13-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:7:22-76
 14
-15    <!-- 定位权限 (用于地图功能 - 成员 E) -->
+15    <!-- Location Permissions (for map features - Member E) -->
 16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:10:5-79
-16-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:10:22-76
+16-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:10:22-76
 17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-17-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:11:5-81
-17-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:11:22-78
+17-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:11:22-78
 18
-19    <!-- 存储权限 (可选) -->
+19    <!-- Storage Permissions (Optional) -->
 20    <uses-permission
-20-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:14:5-15:38
+20-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:14:5-15:38
 21        android:name="android.permission.READ_EXTERNAL_STORAGE"
-21-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:14:22-77
+21-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:14:22-77
 22        android:maxSdkVersion="32" />
-22-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:15:9-35
+22-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:15:9-35
 23    <uses-permission
-23-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:16:5-18:40
+23-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:16:5-18:40
 24        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-24-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:16:22-78
+24-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:16:22-78
 25        android:maxSdkVersion="32" />
-25-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:17:9-35
+25-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:17:9-35
 26
 27    <permission
-27-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+27-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 28        android:name="com.fooddelivery.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-28-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+28-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 29        android:protectionLevel="signature" />
-29-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+29-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 30
 31    <uses-permission android:name="com.fooddelivery.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-31-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-31-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+31-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+31-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 32
 33    <application
-33-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:20:5-43:19
+33-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:20:5-43:19
 34        android:name="com.fooddelivery.app.FoodDeliveryApplication"
-34-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:21:9-48
+34-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:21:9-48
 35        android:allowBackup="true"
-35-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:22:9-35
+35-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:22:9-35
 36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-36-->[androidx.core:core:1.13.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+36-->[androidx.core:core:1.13.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\b41f850e09dce400c644c02cd9c1389e\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 37        android:debuggable="true"
 38        android:extractNativeLibs="false"
 39        android:icon="@mipmap/ic_launcher"
-39-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:23:9-43
+39-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:23:9-43
 40        android:label="@string/app_name"
-40-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:24:9-41
+40-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:24:9-41
 41        android:roundIcon="@mipmap/ic_launcher_round"
-41-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:25:9-54
+41-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:25:9-54
 42        android:supportsRtl="true"
-42-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:26:9-35
+42-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:26:9-35
 43        android:testOnly="true"
 44        android:theme="@style/Theme.FoodDelivery" >
-44-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:27:9-50
+44-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:27:9-50
 45        <activity
-45-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:30:9-38:20
+45-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:30:9-38:20
 46            android:name="com.fooddelivery.app.MainActivity"
-46-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:31:13-41
+46-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:31:13-41
 47            android:exported="true"
-47-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:32:13-36
+47-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:32:13-36
 48            android:theme="@style/Theme.FoodDelivery" >
-48-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:33:13-54
+48-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:33:13-54
 49            <intent-filter>
-49-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:34:13-37:29
+49-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:34:13-37:29
 50                <action android:name="android.intent.action.MAIN" />
-50-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:35:17-69
-50-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:35:25-66
+50-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:35:17-69
+50-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:35:25-66
 51
 52                <category android:name="android.intent.category.LAUNCHER" />
-52-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:36:17-77
-52-->D:\Android File\FoodDelivery\app\src\main\AndroidManifest.xml:36:27-74
+52-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:36:17-77
+52-->C:\Users\75509\Downloads\FoodDelivery-main (1)\FoodDelivery-main\app\src\main\AndroidManifest.xml:36:27-74
 53            </intent-filter>
 54        </activity>
 55
-56        <!-- 地图 SDK 配置 (成员 E 使用) -->
-57        <!-- TODO: 如果使用高德地图，需要在此添加 API Key -->
+56        <!-- Map SDK Configuration (used by Member E) -->
+57        <!-- TODO: If using Amap, add API Key here -->
 58
 59        <provider
-59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 60            android:name="androidx.startup.InitializationProvider"
-60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
 61            android:authorities="com.fooddelivery.app.androidx-startup"
-61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
 62            android:exported="false" >
-62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
 63            <meta-data
-63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
 65                android:value="androidx.startup" />
-65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\3731f13b64fbe2f8bafdad6ecf7c888b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
 66            <meta-data
-66-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
+66-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
 67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
+67-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
 68                android:value="androidx.startup" />
-68-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
+68-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\7185ddb77cd6b348afb3942b35c51eb8\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
 69            <meta-data
-69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
 70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
 71                android:value="androidx.startup" />
-71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
 72        </provider>
 73
 74        <uses-library
-74-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+74-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
 75            android:name="androidx.window.extensions"
-75-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+75-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
 76            android:required="false" />
-76-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+76-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
 77        <uses-library
-77-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+77-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
 78            android:name="androidx.window.sidecar"
-78-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+78-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
 79            android:required="false" />
-79-->[androidx.window:window:1.0.0] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+79-->[androidx.window:window:1.0.0] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\0cc2448a01b054b783a8165b5b831e0d\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
 80
 81        <service
-81-->[androidx.room:room-runtime:2.6.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+81-->[androidx.room:room-runtime:2.6.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
 82            android:name="androidx.room.MultiInstanceInvalidationService"
-82-->[androidx.room:room-runtime:2.6.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+82-->[androidx.room:room-runtime:2.6.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
 83            android:directBootAware="true"
-83-->[androidx.room:room-runtime:2.6.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+83-->[androidx.room:room-runtime:2.6.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
 84            android:exported="false" />
-84-->[androidx.room:room-runtime:2.6.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+84-->[androidx.room:room-runtime:2.6.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\a4b90e7f55706e2c50edc5ba789de2b5\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
 85
 86        <receiver
-86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
 87            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
 88            android:directBootAware="false"
-88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
 89            android:enabled="true"
-89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
 90            android:exported="true"
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
 91            android:permission="android.permission.DUMP" >
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
 92            <intent-filter>
-92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
 93                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
 94            </intent-filter>
 95            <intent-filter>
-95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
 96                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
 97            </intent-filter>
 98            <intent-filter>
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
 99                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
 100            </intent-filter>
 101            <intent-filter>
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
 102                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\ASUS\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\75509\.gradle\caches\9.0-milestone-1\transforms\13881ccbaa066c9884a7e35185d379f5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
 103            </intent-filter>
 104        </receiver>
 105    </application>

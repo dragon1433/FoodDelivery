@@ -79,15 +79,28 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             textCartItemPrice.setText(String.format("¥%.1f", item.getPrice()));
             textCartQuantity.setText(String.valueOf(item.getQuantity()));
             
-            // 加载图片 - 将字符串转换为资源 ID
+            // Load image - support both URL and resource ID
             String imageUrl = item.getImageUrl();
-            int resourceId = getImageResource(imageUrl);
-            
-            if (resourceId != 0) {
-                Glide.with(itemView.getContext())
-                        .load(resourceId)
-                        .placeholder(R.drawable.ic_home)
-                        .into(imageCartItem);
+            if (imageUrl != null && !imageUrl.isEmpty()) {
+                if (imageUrl.startsWith("http")) {
+                    // Load from URL
+                    Glide.with(itemView.getContext())
+                            .load(imageUrl)
+                            .placeholder(R.drawable.ic_home)
+                            .error(R.drawable.ic_home)
+                            .into(imageCartItem);
+                } else {
+                    // Load from local resource
+                    int resourceId = getImageResource(imageUrl);
+                    if (resourceId != 0) {
+                        Glide.with(itemView.getContext())
+                                .load(resourceId)
+                                .placeholder(R.drawable.ic_home)
+                                .into(imageCartItem);
+                    } else {
+                        imageCartItem.setImageResource(R.drawable.ic_home);
+                    }
+                }
             } else {
                 imageCartItem.setImageResource(R.drawable.ic_home);
             }

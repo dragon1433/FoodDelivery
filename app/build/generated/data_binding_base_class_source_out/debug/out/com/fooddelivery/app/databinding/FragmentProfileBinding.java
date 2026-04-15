@@ -38,6 +38,9 @@ public final class FragmentProfileBinding implements ViewBinding {
   public final LinearLayout layoutCustomerService;
 
   @NonNull
+  public final LinearLayout layoutLogout;
+
+  @NonNull
   public final LinearLayout layoutMenu;
 
   @NonNull
@@ -64,16 +67,17 @@ public final class FragmentProfileBinding implements ViewBinding {
   private FragmentProfileBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cardProfile,
       @NonNull ImageView imageAvatar, @NonNull LinearLayout layoutAddress,
       @NonNull LinearLayout layoutCoupons, @NonNull LinearLayout layoutCustomerService,
-      @NonNull LinearLayout layoutMenu, @NonNull LinearLayout layoutMyOrders,
-      @NonNull LinearLayout layoutSettings, @NonNull LinearLayout layoutShoppingCart,
-      @NonNull LinearLayout layoutVip, @NonNull TextView textPhone, @NonNull TextView textUsername,
-      @NonNull LinearLayout toolbar) {
+      @NonNull LinearLayout layoutLogout, @NonNull LinearLayout layoutMenu,
+      @NonNull LinearLayout layoutMyOrders, @NonNull LinearLayout layoutSettings,
+      @NonNull LinearLayout layoutShoppingCart, @NonNull LinearLayout layoutVip,
+      @NonNull TextView textPhone, @NonNull TextView textUsername, @NonNull LinearLayout toolbar) {
     this.rootView = rootView;
     this.cardProfile = cardProfile;
     this.imageAvatar = imageAvatar;
     this.layoutAddress = layoutAddress;
     this.layoutCoupons = layoutCoupons;
     this.layoutCustomerService = layoutCustomerService;
+    this.layoutLogout = layoutLogout;
     this.layoutMenu = layoutMenu;
     this.layoutMyOrders = layoutMyOrders;
     this.layoutSettings = layoutSettings;
@@ -141,6 +145,12 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.layout_logout;
+      LinearLayout layoutLogout = ViewBindings.findChildViewById(rootView, id);
+      if (layoutLogout == null) {
+        break missingId;
+      }
+
       id = R.id.layout_menu;
       LinearLayout layoutMenu = ViewBindings.findChildViewById(rootView, id);
       if (layoutMenu == null) {
@@ -190,8 +200,9 @@ public final class FragmentProfileBinding implements ViewBinding {
       }
 
       return new FragmentProfileBinding((ConstraintLayout) rootView, cardProfile, imageAvatar,
-          layoutAddress, layoutCoupons, layoutCustomerService, layoutMenu, layoutMyOrders,
-          layoutSettings, layoutShoppingCart, layoutVip, textPhone, textUsername, toolbar);
+          layoutAddress, layoutCoupons, layoutCustomerService, layoutLogout, layoutMenu,
+          layoutMyOrders, layoutSettings, layoutShoppingCart, layoutVip, textPhone, textUsername,
+          toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

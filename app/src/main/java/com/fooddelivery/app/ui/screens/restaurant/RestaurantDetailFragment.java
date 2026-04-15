@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.bumptech.glide.Glide;
 import com.fooddelivery.app.R;
 import com.fooddelivery.app.data.model.CartItem;
 import com.fooddelivery.app.data.model.Dish;
@@ -27,10 +29,12 @@ import com.fooddelivery.app.ui.viewmodels.DishViewModel;
 import java.util.List;
 
 /**
- * 餐厅详情 Fragment
+ * Restaurant Detail Fragment
  */
 public class RestaurantDetailFragment extends Fragment implements DishAdapter.OnItemClickListener {
     
+    private FrameLayout layoutHeaderImage;
+    private ImageView imageRestaurant;
     private ImageView btnBack;
     private TextView textRestaurantName;
     private TextView textDescription;
@@ -62,15 +66,17 @@ public class RestaurantDetailFragment extends Fragment implements DishAdapter.On
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
-        // 初始化导航
+        // Initialize navigation
         navController = Navigation.findNavController(view);
         
-        // 获取参数
+        // Get arguments
         if (getArguments() != null) {
             restaurantId = getArguments().getLong("restaurant_id");
         }
         
-        // 初始化视图
+        // Initialize views
+        layoutHeaderImage = view.findViewById(R.id.layout_header_image);
+        imageRestaurant = view.findViewById(R.id.image_restaurant);
         btnBack = view.findViewById(R.id.btn_back);
         textRestaurantName = view.findViewById(R.id.text_restaurant_name);
         textDescription = view.findViewById(R.id.text_description);
@@ -81,58 +87,78 @@ public class RestaurantDetailFragment extends Fragment implements DishAdapter.On
         textTotalPrice = view.findViewById(R.id.text_total_price);
         btnCheckout = view.findViewById(R.id.btn_checkout);
         
-        // 初始化隐藏结算栏
+        // Initially hide checkout bar
         layoutBottomBar.setVisibility(View.GONE);
         
-        // 设置返回按钮
+        // Setup back button
         btnBack.setOnClickListener(v -> {
             requireActivity().onBackPressed();
         });
         
-        // 显示餐厅信息
-        if (restaurant != null) {
-            textRestaurantName.setText(restaurant.getName());
-            textDescription.setText(restaurant.getDescription());
-            textDeliveryTime.setText(restaurant.getDeliveryTime());
-            textDeliveryFee.setText("配送费¥" + restaurant.getDeliveryFee());
-        } else {
-            // 如果没有传入 restaurant 对象，使用默认值
-            textRestaurantName.setText("餐厅详情");
-            textDescription.setText("加载中...");
-            textDeliveryTime.setText("30 分钟");
-            textDeliveryFee.setText("配送费¥5");
-        }
-        
-        // 设置 RecyclerView
+        // Setup RecyclerView
         adapter = new DishAdapter();
         adapter.setOnItemClickListener(this);
         recyclerDishes.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerDishes.setAdapter(adapter);
         
-        // 初始化 ViewModel
+        // Initialize ViewModel
         dishViewModel = new ViewModelProvider(requireActivity()).get(DishViewModel.class);
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
         
-        // 观察菜品数据
-        dishViewModel.getDishesByRestaurant(restaurantId).observe(getViewLifecycleOwner(), dishes -> {
-            if (dishes != null) {
-                adapter.setDishes(dishes);
+        // Observe restaurant data
+        dishViewModel.getRestaurantById(restaurantId).observe(getViewLifecycleOwner(), restaurantData -> {
+            if (restaurantData != null) {
+                restaurant = restaurantData;
+                
+                // Load restaurant image using Glide
+                Glide.with(requireContext())
+                    .load(restaurant.getImageUrl())
+                    .placeholder(R.drawable.restaurant_storefront)
+                    .error(R.drawable.restaurant_storefront)
+                    .into(imageRestaurant);
+                
+                textRestaurantName.setText(restaurant.getName());
+                textDescription.setText(restaurant.getDescription());
+                textDeliveryTime.setText(restaurant.getDeliveryTime());
+                textDeliveryFee.setText(String.format("%s ¥%.1f", getString(R.string.cart_delivery_fee), restaurant.getDeliveryFee()));
+            } else {
+                // If no restaurant found, use default values
+                textRestaurantName.setText(getString(R.string.restaurant_detail_title));
+                textDescription.setText(getString(R.string.empty_data));
+                textDeliveryTime.setText("30 min");
+                textDeliveryFee.setText(String.format("%s ¥5.0", getString(R.string.cart_delivery_fee)));
             }
         });
         
-        // 观察购物车数据，更新结算栏
+        // Observe dish data
+        dishViewModel.getDishesByRestaurant(restaurantId).observe(getViewLifecycleOwner(), dishes -> {
+            if (dishes != null) {
+                adapter.setDishes(dishes);
+                updateCartQuantities();
+            }
+        });
+        
+        // Update cart quantities display
+        cartViewModel.getCartItems().observe(getViewLifecycleOwner(), cartItems -> {
+            updateCartQuantities();
+        });
+        
+        // Observe cart data and update checkout bar
         cartViewModel.getCartItems().observe(getViewLifecycleOwner(), cartItems -> {
             if (cartItems != null && !cartItems.isEmpty()) {
-                // 计算当前餐厅商品总价
+                // Calculate total price for current restaurant items
                 double totalPrice = 0;
+                int itemCount = 0;
                 for (CartItem item : cartItems) {
                     if (item.getRestaurantId() == restaurantId) {
                         totalPrice += item.getPrice() * item.getQuantity();
+                        itemCount += item.getQuantity();
                     }
                 }
                 
                 if (totalPrice > 0) {
                     textTotalPrice.setText(String.format("¥%.1f", totalPrice));
+                    btnCheckout.setText(String.format("Checkout (%d)", itemCount));
                     layoutBottomBar.setVisibility(View.VISIBLE);
                 } else {
                     layoutBottomBar.setVisibility(View.GONE);
@@ -142,62 +168,55 @@ public class RestaurantDetailFragment extends Fragment implements DishAdapter.On
             }
         });
         
-        // 去结算按钮点击
+        // Checkout button click
         btnCheckout.setOnClickListener(v -> {
             navController.navigate(R.id.action_restaurantDetailFragment_to_checkoutFragment);
         });
     }
     
+    /**
+     * Update cart quantities display in dish list
+     */
+    private void updateCartQuantities() {
+        List<CartItem> cartItems = cartViewModel.getCartItems().getValue();
+        if (cartItems != null && adapter != null) {
+            java.util.Map<Long, Integer> quantities = new java.util.HashMap<>();
+            for (CartItem item : cartItems) {
+                if (item.getRestaurantId() == restaurantId) {
+                    quantities.put(item.getDishId(), item.getQuantity());
+                }
+            }
+            adapter.updateCartQuantities(quantities);
+        }
+    }
+    
     @Override
     public void onAddToCart(Dish dish, int quantity) {
-        // quantity 为正数表示增加，负数表示减少
+        // Create cart item from dish
+        CartItem cartItem = new CartItem();
+        cartItem.setFromDish(dish, Math.abs(quantity)); // Use absolute value for quantity
+        
         if (quantity > 0) {
-            // 增加商品 - 直接查询当前购物车数据
-            List<CartItem> cartItems = cartViewModel.getCartItems().getValue();
-            if (cartItems != null) {
-                boolean exists = false;
-                for (CartItem item : cartItems) {
-                    if (item.getDishId() == dish.getId()) {
-                        // 已存在，增加数量
-                        item.setQuantity(item.getQuantity() + quantity);
-                        cartViewModel.updateQuantity(item, item.getQuantity());
-                        exists = true;
-                        break;
-                    }
-                }
-                if (!exists) {
-                    // 不存在，新增
-                    CartItem cartItem = new CartItem();
-                    cartItem.setFromDish(dish, quantity);
-                    cartViewModel.addToCart(cartItem);
-                }
-            } else {
-                // 购物车为空，直接添加
-                CartItem cartItem = new CartItem();
-                cartItem.setFromDish(dish, quantity);
-                cartViewModel.addToCart(cartItem);
-            }
-            
-            Toast.makeText(getContext(), "已加入购物车", Toast.LENGTH_SHORT).show();
+            // Add to cart - Repository will handle existing items
+            cartViewModel.addToCart(cartItem);
+            Toast.makeText(getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
         } else if (quantity < 0) {
-            // 减少商品
+            // Remove from cart
             List<CartItem> cartItems = cartViewModel.getCartItems().getValue();
             if (cartItems != null) {
                 for (CartItem item : cartItems) {
                     if (item.getDishId() == dish.getId()) {
-                        int newQty = item.getQuantity() + quantity; // quantity 是负数
+                        int newQty = item.getQuantity() - 1;
                         if (newQty <= 0) {
                             cartViewModel.removeFromCart(item);
                         } else {
-                            item.setQuantity(newQty);
                             cartViewModel.updateQuantity(item, newQty);
                         }
                         break;
                     }
                 }
             }
-            
-            Toast.makeText(getContext(), "已减少", Toast.LENGTH_SHORT).show();
         }
+        // The UI will be updated automatically by the observer
     }
 }

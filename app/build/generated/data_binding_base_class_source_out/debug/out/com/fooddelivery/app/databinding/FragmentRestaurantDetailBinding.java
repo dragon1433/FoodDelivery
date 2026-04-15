@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,7 +35,13 @@ public final class FragmentRestaurantDetailBinding implements ViewBinding {
   public final CardView cardHeader;
 
   @NonNull
+  public final ImageView imageRestaurant;
+
+  @NonNull
   public final LinearLayout layoutBottomBar;
+
+  @NonNull
+  public final FrameLayout layoutHeaderImage;
 
   @NonNull
   public final RecyclerView recyclerDishes;
@@ -54,27 +61,26 @@ public final class FragmentRestaurantDetailBinding implements ViewBinding {
   @NonNull
   public final TextView textTotalPrice;
 
-  @NonNull
-  public final LinearLayout toolbar;
-
   private FragmentRestaurantDetailBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageView btnBack, @NonNull Button btnCheckout, @NonNull CardView cardHeader,
-      @NonNull LinearLayout layoutBottomBar, @NonNull RecyclerView recyclerDishes,
+      @NonNull ImageView imageRestaurant, @NonNull LinearLayout layoutBottomBar,
+      @NonNull FrameLayout layoutHeaderImage, @NonNull RecyclerView recyclerDishes,
       @NonNull TextView textDeliveryFee, @NonNull TextView textDeliveryTime,
       @NonNull TextView textDescription, @NonNull TextView textRestaurantName,
-      @NonNull TextView textTotalPrice, @NonNull LinearLayout toolbar) {
+      @NonNull TextView textTotalPrice) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnCheckout = btnCheckout;
     this.cardHeader = cardHeader;
+    this.imageRestaurant = imageRestaurant;
     this.layoutBottomBar = layoutBottomBar;
+    this.layoutHeaderImage = layoutHeaderImage;
     this.recyclerDishes = recyclerDishes;
     this.textDeliveryFee = textDeliveryFee;
     this.textDeliveryTime = textDeliveryTime;
     this.textDescription = textDescription;
     this.textRestaurantName = textRestaurantName;
     this.textTotalPrice = textTotalPrice;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -122,9 +128,21 @@ public final class FragmentRestaurantDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.image_restaurant;
+      ImageView imageRestaurant = ViewBindings.findChildViewById(rootView, id);
+      if (imageRestaurant == null) {
+        break missingId;
+      }
+
       id = R.id.layout_bottom_bar;
       LinearLayout layoutBottomBar = ViewBindings.findChildViewById(rootView, id);
       if (layoutBottomBar == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_header_image;
+      FrameLayout layoutHeaderImage = ViewBindings.findChildViewById(rootView, id);
+      if (layoutHeaderImage == null) {
         break missingId;
       }
 
@@ -164,15 +182,9 @@ public final class FragmentRestaurantDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      LinearLayout toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new FragmentRestaurantDetailBinding((ConstraintLayout) rootView, btnBack, btnCheckout,
-          cardHeader, layoutBottomBar, recyclerDishes, textDeliveryFee, textDeliveryTime,
-          textDescription, textRestaurantName, textTotalPrice, toolbar);
+          cardHeader, imageRestaurant, layoutBottomBar, layoutHeaderImage, recyclerDishes,
+          textDeliveryFee, textDeliveryTime, textDescription, textRestaurantName, textTotalPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

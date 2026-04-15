@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 标题栏 -->
+    <!-- Toolbar -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,13 +21,13 @@
             android:layout_height="40dp"
             android:src="@drawable/ic_back"
             android:padding="8dp"
-            android:contentDescription="返回" />
+            android:contentDescription="@string/back" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="确认订单"
+            android:text="Confirm Order"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginLeft="16dp" />
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 配送地址 -->
+            <!-- Delivery Address -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="配送地址"
+                        android:text="@string/profile_address_manage"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -77,14 +77,14 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_profile"
-                            android:contentDescription="地址" />
+                            android:contentDescription="Address" />
 
                         <TextView
                             android:id="@+id/text_address"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="请选择配送地址"
+                            android:text="Please select delivery address"
                             android:textSize="14sp"
                             android:textColor="#666666"
                             android:layout_marginLeft="8dp" />
@@ -96,12 +96,12 @@
                             android:src="@drawable/ic_back"
                             android:rotation="180"
                             android:padding="4dp"
-                            android:contentDescription="选择地址" />
+                            android:contentDescription="Select address" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 商品信息 -->
+            <!-- Product Information -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="商品信息"
+                        android:text="Product Information"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -132,7 +132,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 订单备注 -->
+            <!-- Order Notes -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="订单备注"
+                        android:text="Order Notes"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -160,7 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:hint="选填：对本订单的说明"
+                        android:hint="Optional: Notes for this order"
                         android:textSize="14sp"
                         android:background="@null"
                         android:padding="8dp"
@@ -168,7 +168,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 费用明细 -->
+            <!-- Cost Details -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="费用明细"
+                        android:text="Cost Details"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -201,7 +201,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="菜品总额"
+                            android:text="Food Total"
                             android:textSize="14sp" />
 
                         <TextView
@@ -222,7 +222,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="配送费"
+                            android:text="@string/cart_delivery_fee"
                             android:textSize="14sp" />
 
                         <TextView
@@ -249,7 +249,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="实付款"
+                            android:text="Total Payment"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -267,7 +267,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- 底部提交栏 -->
+    <!-- Bottom Submit Bar -->
     <LinearLayout
         android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
@@ -297,7 +297,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(含配送费 ¥5.00)"
+                android:text="(Including delivery fee ¥5.00)"
                 android:textSize="12sp"
                 android:textColor="#999999"
                 android:layout_marginTop="4dp" />
@@ -307,7 +307,7 @@
             android:id="@+id/btn_submit_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="提交订单"
+            android:text="@string/order_submit"
             android:textSize="16sp"
             android:paddingLeft="32dp"
             android:paddingRight="32dp"

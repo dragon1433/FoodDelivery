@@ -4,6 +4,7 @@ package com.fooddelivery.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,12 @@ public final class ItemOrderBinding implements ViewBinding {
   private final CardView rootView;
 
   @NonNull
+  public final Button btnDeleteOrder;
+
+  @NonNull
+  public final Button btnReviewOrder;
+
+  @NonNull
   public final TextView textItems;
 
   @NonNull
@@ -34,10 +41,13 @@ public final class ItemOrderBinding implements ViewBinding {
   @NonNull
   public final TextView textTotalPrice;
 
-  private ItemOrderBinding(@NonNull CardView rootView, @NonNull TextView textItems,
+  private ItemOrderBinding(@NonNull CardView rootView, @NonNull Button btnDeleteOrder,
+      @NonNull Button btnReviewOrder, @NonNull TextView textItems,
       @NonNull TextView textOrderStatus, @NonNull TextView textOrderTime,
       @NonNull TextView textRestaurantName, @NonNull TextView textTotalPrice) {
     this.rootView = rootView;
+    this.btnDeleteOrder = btnDeleteOrder;
+    this.btnReviewOrder = btnReviewOrder;
     this.textItems = textItems;
     this.textOrderStatus = textOrderStatus;
     this.textOrderTime = textOrderTime;
@@ -72,6 +82,18 @@ public final class ItemOrderBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_delete_order;
+      Button btnDeleteOrder = ViewBindings.findChildViewById(rootView, id);
+      if (btnDeleteOrder == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_review_order;
+      Button btnReviewOrder = ViewBindings.findChildViewById(rootView, id);
+      if (btnReviewOrder == null) {
+        break missingId;
+      }
+
       id = R.id.text_items;
       TextView textItems = ViewBindings.findChildViewById(rootView, id);
       if (textItems == null) {
@@ -102,8 +124,8 @@ public final class ItemOrderBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemOrderBinding((CardView) rootView, textItems, textOrderStatus, textOrderTime,
-          textRestaurantName, textTotalPrice);
+      return new ItemOrderBinding((CardView) rootView, btnDeleteOrder, btnReviewOrder, textItems,
+          textOrderStatus, textOrderTime, textRestaurantName, textTotalPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

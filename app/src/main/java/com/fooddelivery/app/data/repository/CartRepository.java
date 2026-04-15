@@ -15,14 +15,22 @@ import java.util.concurrent.Executors;
  */
 public class CartRepository {
     
+    private static CartRepository instance;
     private final CartDao cartDao;
     private final ExecutorService executor;
     private final MutableLiveData<List<CartItem>> cartItems = new MutableLiveData<>();
     
-    public CartRepository(Context context) {
+    private CartRepository(Context context) {
         AppDatabase database = AppDatabase.getDatabase(context);
         this.cartDao = database.cartDao();
         this.executor = Executors.newSingleThreadExecutor();
+    }
+    
+    public static synchronized CartRepository getInstance(Context context) {
+        if (instance == null) {
+            instance = new CartRepository(context.getApplicationContext());
+        }
+        return instance;
     }
     
     public LiveData<List<CartItem>> getCartItems() {

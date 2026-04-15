@@ -14,7 +14,7 @@
         android:padding="32dp"
         android:gravity="center_horizontal">
 
-        <!-- Logo/标题区域 -->
+        <!-- Logo/Title Area -->
         <ImageView
             android:id="@+id/logo_image"
             android:layout_width="120dp"
@@ -36,11 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="让美食触手可及"
+            android:text="Delicious food at your fingertips"
             android:textSize="14sp"
             android:textColor="#999999" />
 
-        <!-- 登录表单区域 -->
+        <!-- Login Form Area -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,12 +54,12 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- 手机号输入框 -->
+                <!-- Phone Number Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phone_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="手机号"
+                    android:hint="@string/login_phone_hint"
                     app:startIconDrawable="@drawable/ic_profile"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -72,13 +72,13 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- 密码输入框 -->
+                <!-- Password Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="密码"
+                    android:hint="@string/login_password_hint"
                     app:startIconDrawable="@drawable/ic_cart"
                     app:endIconMode="password_toggle"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -91,7 +91,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- 记住我 & 忘记密码 -->
+                <!-- Remember Me & Forgot Password -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:id="@+id/remember_me_checkbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="记住我"
+                        android:text="@string/login_remember_me"
                         android:textSize="14sp"
                         android:textColor="#666666" />
 
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="忘记密码？"
+                        android:text="@string/login_forgot_password"
                         android:textSize="14sp"
                         android:textColor="#FF6B35"
                         android:clickable="true"
@@ -119,19 +119,19 @@
 
                 </RelativeLayout>
 
-                <!-- 登录按钮 -->
+                <!-- Login Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/login_button"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginTop="24dp"
-                    android:text="登录"
+                    android:text="@string/login_button"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:cornerRadius="8dp"
                     android:backgroundTint="#FF6B35" />
 
-                <!-- 注册链接 -->
+                <!-- Register Link -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="还没有账号？"
+                        android:text="@string/login_no_account"
                         android:textSize="14sp"
                         android:textColor="#666666" />
 
@@ -151,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="立即注册"
+                        android:text="@string/login_register"
                         android:textSize="14sp"
                         android:textColor="#FF6B35"
                         android:textStyle="bold"

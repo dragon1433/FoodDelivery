@@ -29,4 +29,7 @@ public interface DishDao {
     
     @Delete
     void delete(Dish dish);
+    
+    @Query("DELETE FROM dishes")
+    void deleteAllDishes();
 }

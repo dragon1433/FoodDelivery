@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 标题栏 -->
+    <!-- Toolbar -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,12 +18,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="购物车"
+            android:text="@string/cart"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- 空购物车提示 -->
+    <!-- Empty Cart Message -->
     <LinearLayout
         android:id="@+id/layout_empty"
         android:layout_width="match_parent"
@@ -37,17 +37,17 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/ic_cart"
-            android:contentDescription="空购物车" />
+            android:contentDescription="Empty cart" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="购物车空空如也"
+            android:text="@string/cart_empty"
             android:textSize="16sp"
             android:layout_marginTop="16dp" />
     </LinearLayout>
 
-    <!-- 购物车列表 -->
+    <!-- Cart List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/layout_bottom_bar" />
 
-    <!-- 底部结算栏 -->
+    <!-- Bottom Checkout Bar -->
     <LinearLayout
         android:id="@+id/layout_bottom_bar"
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="另需支付配送费 ¥5.00"
+                android:text="@string/cart_delivery_fee_hint"
                 android:textSize="12sp"
                 android:textColor="#999999"
                 android:layout_marginTop="4dp" />
@@ -95,7 +95,7 @@
             android:id="@+id/btn_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="去结算"
+            android:text="@string/cart_checkout"
             android:textSize="16sp"
             android:paddingLeft="32dp"
             android:paddingRight="32dp"

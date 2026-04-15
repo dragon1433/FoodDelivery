@@ -13,16 +13,16 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- 商品图片 -->
+        <!-- Product Image -->
         <ImageView
             android:id="@+id/image_cart_item"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_home"
-            android:contentDescription="商品图片" />
+            android:contentDescription="Product image" />
 
-        <!-- 商品信息 -->
+        <!-- Product Information -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 android:id="@+id/text_cart_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="商品名称"
+                android:text="Product Name"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 删除按钮 -->
+        <!-- Delete Button -->
         <ImageView
             android:id="@+id/btn_delete"
             android:layout_width="32dp"
@@ -88,6 +88,6 @@
             android:src="@drawable/ic_remove"
             android:padding="6dp"
             android:layout_gravity="top"
-            android:contentDescription="删除" />
+            android:contentDescription="@string/address_delete" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

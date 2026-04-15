@@ -87,15 +87,28 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
             textDishDescription.setText(dish.getDescription());
             textDishPrice.setText(String.format("¥%.1f", dish.getPrice()));
             
-            // 加载图片 - 将字符串转换为资源 ID
+            // Load image - support both URL and resource ID
             String imageUrl = dish.getImageUrl();
-            int resourceId = getImageResource(imageUrl);
-            
-            if (resourceId != 0) {
-                Glide.with(itemView.getContext())
-                        .load(resourceId)
-                        .placeholder(R.drawable.ic_home)
-                        .into(imageDish);
+            if (imageUrl != null && !imageUrl.isEmpty()) {
+                if (imageUrl.startsWith("http")) {
+                    // Load from URL
+                    Glide.with(itemView.getContext())
+                            .load(imageUrl)
+                            .placeholder(R.drawable.ic_home)
+                            .error(R.drawable.ic_home)
+                            .into(imageDish);
+                } else {
+                    // Load from local resource
+                    int resourceId = getImageResource(imageUrl);
+                    if (resourceId != 0) {
+                        Glide.with(itemView.getContext())
+                                .load(resourceId)
+                                .placeholder(R.drawable.ic_home)
+                                .into(imageDish);
+                    } else {
+                        imageDish.setImageResource(R.drawable.ic_home);
+                    }
+                }
             } else {
                 imageDish.setImageResource(R.drawable.ic_home);
             }
@@ -106,15 +119,8 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
             
             // 加减按钮点击事件
             btnIncrease.setOnClickListener(v -> {
-                int currentQty = cartQuantities.getOrDefault(dish.getId(), 0);
-                int newQty = currentQty + 1;
-                cartQuantities.put(dish.getId(), newQty);
-                textQuantity.setText(String.valueOf(newQty));
-                
-                // 添加到购物车 - 增加 1 个
+                // 通知 listener 添加商品到购物车
                 if (listener != null) {
-                    CartItem cartItem = new CartItem();
-                    cartItem.setFromDish(dish, 1); // 增加 1 个
                     listener.onAddToCart(dish, 1);
                 }
             });
@@ -122,14 +128,8 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
             btnDecrease.setOnClickListener(v -> {
                 int currentQty = cartQuantities.getOrDefault(dish.getId(), 0);
                 if (currentQty > 0) {
-                    int newQty = currentQty - 1;
-                    cartQuantities.put(dish.getId(), newQty);
-                    textQuantity.setText(String.valueOf(newQty));
-                    
-                    // 从购物车减少 1 个
+                    // 通知 listener 从购物车减少商品
                     if (listener != null) {
-                        CartItem cartItem = new CartItem();
-                        cartItem.setFromDish(dish, -1); // 减少 1 个 (负数)
                         listener.onAddToCart(dish, -1);
                     }
                 }

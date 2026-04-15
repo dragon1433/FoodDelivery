@@ -1,5 +1,6 @@
 package com.fooddelivery.app.data.local;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import java.util.List;
 @Dao
 public interface AddressDao {
     @Query("SELECT * FROM addresses ORDER BY isDefault DESC, id")
-    List<Address> getAllAddresses();
+    LiveData<List<Address>> getAllAddresses();
     
     @Query("SELECT * FROM addresses WHERE id = :addressId")
     Address getAddressById(long addressId);

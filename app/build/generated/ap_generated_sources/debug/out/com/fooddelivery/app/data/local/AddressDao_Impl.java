@@ -2,6 +2,8 @@ package com.fooddelivery.app.data.local;
 
 import android.database.Cursor;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
@@ -13,12 +15,14 @@ import androidx.sqlite.db.SupportSQLiteStatement;
 import com.fooddelivery.app.data.model.Address;
 import java.lang.Class;
 import java.lang.Double;
+import java.lang.Exception;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Callable;
 import javax.annotation.processing.Generated;
 
 @Generated("androidx.room.RoomProcessor")
@@ -271,137 +275,146 @@ public final class AddressDao_Impl implements AddressDao {
   }
 
   @Override
-  public List<Address> getAllAddresses() {
+  public LiveData<List<Address>> getAllAddresses() {
     final String _sql = "SELECT * FROM addresses ORDER BY isDefault DESC, id";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
-      final int _cursorIndexOfDetailAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "detailAddress");
-      final int _cursorIndexOfProvince = CursorUtil.getColumnIndexOrThrow(_cursor, "province");
-      final int _cursorIndexOfCity = CursorUtil.getColumnIndexOrThrow(_cursor, "city");
-      final int _cursorIndexOfDistrict = CursorUtil.getColumnIndexOrThrow(_cursor, "district");
-      final int _cursorIndexOfStreet = CursorUtil.getColumnIndexOrThrow(_cursor, "street");
-      final int _cursorIndexOfBuildingInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "buildingInfo");
-      final int _cursorIndexOfFloorInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "floorInfo");
-      final int _cursorIndexOfDoorplateInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "doorplateInfo");
-      final int _cursorIndexOfAddressTag = CursorUtil.getColumnIndexOrThrow(_cursor, "addressTag");
-      final int _cursorIndexOfIsDefault = CursorUtil.getColumnIndexOrThrow(_cursor, "isDefault");
-      final int _cursorIndexOfLatitude = CursorUtil.getColumnIndexOrThrow(_cursor, "latitude");
-      final int _cursorIndexOfLongitude = CursorUtil.getColumnIndexOrThrow(_cursor, "longitude");
-      final List<Address> _result = new ArrayList<Address>(_cursor.getCount());
-      while (_cursor.moveToNext()) {
-        final Address _item;
-        _item = new Address();
-        final long _tmpId;
-        _tmpId = _cursor.getLong(_cursorIndexOfId);
-        _item.setId(_tmpId);
-        final String _tmpName;
-        if (_cursor.isNull(_cursorIndexOfName)) {
-          _tmpName = null;
-        } else {
-          _tmpName = _cursor.getString(_cursorIndexOfName);
+    return __db.getInvalidationTracker().createLiveData(new String[] {"addresses"}, false, new Callable<List<Address>>() {
+      @Override
+      @Nullable
+      public List<Address> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
+          final int _cursorIndexOfDetailAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "detailAddress");
+          final int _cursorIndexOfProvince = CursorUtil.getColumnIndexOrThrow(_cursor, "province");
+          final int _cursorIndexOfCity = CursorUtil.getColumnIndexOrThrow(_cursor, "city");
+          final int _cursorIndexOfDistrict = CursorUtil.getColumnIndexOrThrow(_cursor, "district");
+          final int _cursorIndexOfStreet = CursorUtil.getColumnIndexOrThrow(_cursor, "street");
+          final int _cursorIndexOfBuildingInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "buildingInfo");
+          final int _cursorIndexOfFloorInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "floorInfo");
+          final int _cursorIndexOfDoorplateInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "doorplateInfo");
+          final int _cursorIndexOfAddressTag = CursorUtil.getColumnIndexOrThrow(_cursor, "addressTag");
+          final int _cursorIndexOfIsDefault = CursorUtil.getColumnIndexOrThrow(_cursor, "isDefault");
+          final int _cursorIndexOfLatitude = CursorUtil.getColumnIndexOrThrow(_cursor, "latitude");
+          final int _cursorIndexOfLongitude = CursorUtil.getColumnIndexOrThrow(_cursor, "longitude");
+          final List<Address> _result = new ArrayList<Address>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final Address _item;
+            _item = new Address();
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            _item.setId(_tmpId);
+            final String _tmpName;
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
+            _item.setName(_tmpName);
+            final String _tmpPhone;
+            if (_cursor.isNull(_cursorIndexOfPhone)) {
+              _tmpPhone = null;
+            } else {
+              _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+            }
+            _item.setPhone(_tmpPhone);
+            final String _tmpDetailAddress;
+            if (_cursor.isNull(_cursorIndexOfDetailAddress)) {
+              _tmpDetailAddress = null;
+            } else {
+              _tmpDetailAddress = _cursor.getString(_cursorIndexOfDetailAddress);
+            }
+            _item.setDetailAddress(_tmpDetailAddress);
+            final String _tmpProvince;
+            if (_cursor.isNull(_cursorIndexOfProvince)) {
+              _tmpProvince = null;
+            } else {
+              _tmpProvince = _cursor.getString(_cursorIndexOfProvince);
+            }
+            _item.setProvince(_tmpProvince);
+            final String _tmpCity;
+            if (_cursor.isNull(_cursorIndexOfCity)) {
+              _tmpCity = null;
+            } else {
+              _tmpCity = _cursor.getString(_cursorIndexOfCity);
+            }
+            _item.setCity(_tmpCity);
+            final String _tmpDistrict;
+            if (_cursor.isNull(_cursorIndexOfDistrict)) {
+              _tmpDistrict = null;
+            } else {
+              _tmpDistrict = _cursor.getString(_cursorIndexOfDistrict);
+            }
+            _item.setDistrict(_tmpDistrict);
+            final String _tmpStreet;
+            if (_cursor.isNull(_cursorIndexOfStreet)) {
+              _tmpStreet = null;
+            } else {
+              _tmpStreet = _cursor.getString(_cursorIndexOfStreet);
+            }
+            _item.setStreet(_tmpStreet);
+            final String _tmpBuildingInfo;
+            if (_cursor.isNull(_cursorIndexOfBuildingInfo)) {
+              _tmpBuildingInfo = null;
+            } else {
+              _tmpBuildingInfo = _cursor.getString(_cursorIndexOfBuildingInfo);
+            }
+            _item.setBuildingInfo(_tmpBuildingInfo);
+            final String _tmpFloorInfo;
+            if (_cursor.isNull(_cursorIndexOfFloorInfo)) {
+              _tmpFloorInfo = null;
+            } else {
+              _tmpFloorInfo = _cursor.getString(_cursorIndexOfFloorInfo);
+            }
+            _item.setFloorInfo(_tmpFloorInfo);
+            final String _tmpDoorplateInfo;
+            if (_cursor.isNull(_cursorIndexOfDoorplateInfo)) {
+              _tmpDoorplateInfo = null;
+            } else {
+              _tmpDoorplateInfo = _cursor.getString(_cursorIndexOfDoorplateInfo);
+            }
+            _item.setDoorplateInfo(_tmpDoorplateInfo);
+            final String _tmpAddressTag;
+            if (_cursor.isNull(_cursorIndexOfAddressTag)) {
+              _tmpAddressTag = null;
+            } else {
+              _tmpAddressTag = _cursor.getString(_cursorIndexOfAddressTag);
+            }
+            _item.setAddressTag(_tmpAddressTag);
+            final boolean _tmpIsDefault;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsDefault);
+            _tmpIsDefault = _tmp != 0;
+            _item.setDefault(_tmpIsDefault);
+            final Double _tmpLatitude;
+            if (_cursor.isNull(_cursorIndexOfLatitude)) {
+              _tmpLatitude = null;
+            } else {
+              _tmpLatitude = _cursor.getDouble(_cursorIndexOfLatitude);
+            }
+            _item.setLatitude(_tmpLatitude);
+            final Double _tmpLongitude;
+            if (_cursor.isNull(_cursorIndexOfLongitude)) {
+              _tmpLongitude = null;
+            } else {
+              _tmpLongitude = _cursor.getDouble(_cursorIndexOfLongitude);
+            }
+            _item.setLongitude(_tmpLongitude);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
         }
-        _item.setName(_tmpName);
-        final String _tmpPhone;
-        if (_cursor.isNull(_cursorIndexOfPhone)) {
-          _tmpPhone = null;
-        } else {
-          _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
-        }
-        _item.setPhone(_tmpPhone);
-        final String _tmpDetailAddress;
-        if (_cursor.isNull(_cursorIndexOfDetailAddress)) {
-          _tmpDetailAddress = null;
-        } else {
-          _tmpDetailAddress = _cursor.getString(_cursorIndexOfDetailAddress);
-        }
-        _item.setDetailAddress(_tmpDetailAddress);
-        final String _tmpProvince;
-        if (_cursor.isNull(_cursorIndexOfProvince)) {
-          _tmpProvince = null;
-        } else {
-          _tmpProvince = _cursor.getString(_cursorIndexOfProvince);
-        }
-        _item.setProvince(_tmpProvince);
-        final String _tmpCity;
-        if (_cursor.isNull(_cursorIndexOfCity)) {
-          _tmpCity = null;
-        } else {
-          _tmpCity = _cursor.getString(_cursorIndexOfCity);
-        }
-        _item.setCity(_tmpCity);
-        final String _tmpDistrict;
-        if (_cursor.isNull(_cursorIndexOfDistrict)) {
-          _tmpDistrict = null;
-        } else {
-          _tmpDistrict = _cursor.getString(_cursorIndexOfDistrict);
-        }
-        _item.setDistrict(_tmpDistrict);
-        final String _tmpStreet;
-        if (_cursor.isNull(_cursorIndexOfStreet)) {
-          _tmpStreet = null;
-        } else {
-          _tmpStreet = _cursor.getString(_cursorIndexOfStreet);
-        }
-        _item.setStreet(_tmpStreet);
-        final String _tmpBuildingInfo;
-        if (_cursor.isNull(_cursorIndexOfBuildingInfo)) {
-          _tmpBuildingInfo = null;
-        } else {
-          _tmpBuildingInfo = _cursor.getString(_cursorIndexOfBuildingInfo);
-        }
-        _item.setBuildingInfo(_tmpBuildingInfo);
-        final String _tmpFloorInfo;
-        if (_cursor.isNull(_cursorIndexOfFloorInfo)) {
-          _tmpFloorInfo = null;
-        } else {
-          _tmpFloorInfo = _cursor.getString(_cursorIndexOfFloorInfo);
-        }
-        _item.setFloorInfo(_tmpFloorInfo);
-        final String _tmpDoorplateInfo;
-        if (_cursor.isNull(_cursorIndexOfDoorplateInfo)) {
-          _tmpDoorplateInfo = null;
-        } else {
-          _tmpDoorplateInfo = _cursor.getString(_cursorIndexOfDoorplateInfo);
-        }
-        _item.setDoorplateInfo(_tmpDoorplateInfo);
-        final String _tmpAddressTag;
-        if (_cursor.isNull(_cursorIndexOfAddressTag)) {
-          _tmpAddressTag = null;
-        } else {
-          _tmpAddressTag = _cursor.getString(_cursorIndexOfAddressTag);
-        }
-        _item.setAddressTag(_tmpAddressTag);
-        final boolean _tmpIsDefault;
-        final int _tmp;
-        _tmp = _cursor.getInt(_cursorIndexOfIsDefault);
-        _tmpIsDefault = _tmp != 0;
-        _item.setDefault(_tmpIsDefault);
-        final Double _tmpLatitude;
-        if (_cursor.isNull(_cursorIndexOfLatitude)) {
-          _tmpLatitude = null;
-        } else {
-          _tmpLatitude = _cursor.getDouble(_cursorIndexOfLatitude);
-        }
-        _item.setLatitude(_tmpLatitude);
-        final Double _tmpLongitude;
-        if (_cursor.isNull(_cursorIndexOfLongitude)) {
-          _tmpLongitude = null;
-        } else {
-          _tmpLongitude = _cursor.getDouble(_cursorIndexOfLongitude);
-        }
-        _item.setLongitude(_tmpLongitude);
-        _result.add(_item);
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   @Override

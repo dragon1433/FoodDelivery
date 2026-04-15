@@ -47,4 +47,13 @@ public class RestaurantRepository {
             }
         });
     }
+    
+    public LiveData<Restaurant> getRestaurantById(long restaurantId) {
+        MutableLiveData<Restaurant> restaurant = new MutableLiveData<>();
+        executor.execute(() -> {
+            Restaurant result = restaurantDao.getRestaurantById(restaurantId);
+            restaurant.postValue(result);
+        });
+        return restaurant;
+    }
 }

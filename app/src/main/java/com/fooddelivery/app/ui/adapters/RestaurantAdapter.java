@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 餐厅列表适配器
+ * Restaurant List Adapter
  */
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder> {
     
@@ -80,27 +80,40 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             textName.setText(restaurant.getName());
             textEnglishName.setText(restaurant.getEnglishName());
             textRating.setText(String.valueOf(restaurant.getRating()));
-            textMonthlySales.setText("月售 " + restaurant.getMonthlySales());
-            textDeliveryInfo.setText(restaurant.getDeliveryTime() + " · 配送费¥" + restaurant.getDeliveryFee());
+            textMonthlySales.setText("Monthly Sales " + restaurant.getMonthlySales());
+            textDeliveryInfo.setText(restaurant.getDeliveryTime() + " · Delivery fee ¥" + restaurant.getDeliveryFee());
             textDistance.setText(String.format("%.1fkm", restaurant.getDistance()));
             
-            // 加载图片 - 将字符串转换为资源 ID
+            // Load image - support both URL and resource ID
             String imageUrl = restaurant.getImageUrl();
-            int resourceId = getImageResource(imageUrl);
-            
-            if (resourceId != 0) {
-                Glide.with(itemView.getContext())
-                        .load(resourceId)
-                        .placeholder(R.drawable.ic_home)
-                        .into(imageRestaurant);
+            if (imageUrl != null && !imageUrl.isEmpty()) {
+                if (imageUrl.startsWith("http")) {
+                    // Load from URL
+                    Glide.with(itemView.getContext())
+                            .load(imageUrl)
+                            .placeholder(R.drawable.ic_home)
+                            .error(R.drawable.ic_home)
+                            .into(imageRestaurant);
+                } else {
+                    // Load from local resource
+                    int resourceId = getImageResource(imageUrl);
+                    if (resourceId != 0) {
+                        Glide.with(itemView.getContext())
+                                .load(resourceId)
+                                .placeholder(R.drawable.ic_home)
+                                .into(imageRestaurant);
+                    } else {
+                        imageRestaurant.setImageResource(R.drawable.ic_home);
+                    }
+                }
             } else {
                 imageRestaurant.setImageResource(R.drawable.ic_home);
             }
             
-            // 设置收藏图标
+            // Set favorite icon
             btnFavorite.setImageResource(restaurant.isFavorite() ? R.drawable.ic_profile : R.drawable.ic_home);
             
-            // 点击事件
+            // Click events
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
                     listener.onItemClick(restaurant);
@@ -114,7 +127,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             });
         }
         
-        // 根据图片名称获取资源 ID
+        // Get resource ID by image name
         private int getImageResource(String imageName) {
             if (imageName == null || imageName.isEmpty()) {
                 return 0;

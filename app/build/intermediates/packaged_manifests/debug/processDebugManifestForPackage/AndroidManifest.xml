@@ -8,15 +8,15 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
-    <!-- 网络权限 -->
+    <!-- Network Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- 定位权限 (用于地图功能 - 成员 E) -->
+    <!-- Location Permissions (for map features - Member E) -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!-- 存储权限 (可选) -->
+    <!-- Storage Permissions (Optional) -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
@@ -53,8 +53,8 @@
             </intent-filter>
         </activity>
 
-        <!-- 地图 SDK 配置 (成员 E 使用) -->
-        <!-- TODO: 如果使用高德地图，需要在此添加 API Key -->
+        <!-- Map SDK Configuration (used by Member E) -->
+        <!-- TODO: If using Amap, add API Key here -->
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.fooddelivery.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -22,10 +23,10 @@ public final class FragmentMainBinding implements ViewBinding {
   private final SwipeRefreshLayout rootView;
 
   @NonNull
-  public final ImageView bannerImage;
+  public final ImageView btnSearch;
 
   @NonNull
-  public final ImageView btnSearch;
+  public final LinearLayout layoutPageIndicator;
 
   @NonNull
   public final LinearLayout mainLinear;
@@ -36,15 +37,20 @@ public final class FragmentMainBinding implements ViewBinding {
   @NonNull
   public final SwipeRefreshLayout swipeRefresh;
 
-  private FragmentMainBinding(@NonNull SwipeRefreshLayout rootView, @NonNull ImageView bannerImage,
-      @NonNull ImageView btnSearch, @NonNull LinearLayout mainLinear,
-      @NonNull RecyclerView recyclerRestaurants, @NonNull SwipeRefreshLayout swipeRefresh) {
+  @NonNull
+  public final ViewPager2 viewPagerBanner;
+
+  private FragmentMainBinding(@NonNull SwipeRefreshLayout rootView, @NonNull ImageView btnSearch,
+      @NonNull LinearLayout layoutPageIndicator, @NonNull LinearLayout mainLinear,
+      @NonNull RecyclerView recyclerRestaurants, @NonNull SwipeRefreshLayout swipeRefresh,
+      @NonNull ViewPager2 viewPagerBanner) {
     this.rootView = rootView;
-    this.bannerImage = bannerImage;
     this.btnSearch = btnSearch;
+    this.layoutPageIndicator = layoutPageIndicator;
     this.mainLinear = mainLinear;
     this.recyclerRestaurants = recyclerRestaurants;
     this.swipeRefresh = swipeRefresh;
+    this.viewPagerBanner = viewPagerBanner;
   }
 
   @Override
@@ -74,15 +80,15 @@ public final class FragmentMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.banner_image;
-      ImageView bannerImage = ViewBindings.findChildViewById(rootView, id);
-      if (bannerImage == null) {
-        break missingId;
-      }
-
       id = R.id.btn_search;
       ImageView btnSearch = ViewBindings.findChildViewById(rootView, id);
       if (btnSearch == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_page_indicator;
+      LinearLayout layoutPageIndicator = ViewBindings.findChildViewById(rootView, id);
+      if (layoutPageIndicator == null) {
         break missingId;
       }
 
@@ -100,8 +106,14 @@ public final class FragmentMainBinding implements ViewBinding {
 
       SwipeRefreshLayout swipeRefresh = (SwipeRefreshLayout) rootView;
 
-      return new FragmentMainBinding((SwipeRefreshLayout) rootView, bannerImage, btnSearch,
-          mainLinear, recyclerRestaurants, swipeRefresh);
+      id = R.id.view_pager_banner;
+      ViewPager2 viewPagerBanner = ViewBindings.findChildViewById(rootView, id);
+      if (viewPagerBanner == null) {
+        break missingId;
+      }
+
+      return new FragmentMainBinding((SwipeRefreshLayout) rootView, btnSearch, layoutPageIndicator,
+          mainLinear, recyclerRestaurants, swipeRefresh, viewPagerBanner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

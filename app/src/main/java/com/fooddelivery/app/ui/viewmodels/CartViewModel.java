@@ -19,7 +19,7 @@ public class CartViewModel extends AndroidViewModel {
     
     public CartViewModel(@NonNull Application application) {
         super(application);
-        repository = new CartRepository(application);
+        repository = CartRepository.getInstance(application);
         cartItems = repository.getCartItems();
         totalCount = repository.getTotalCount();
     }

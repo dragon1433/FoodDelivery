@@ -13,6 +13,15 @@ import java.util.List;
 
 @Dao
 public interface OrderDao {
+    @Query("SELECT * FROM orders WHERE userId = :userId ORDER BY createTime DESC")
+    List<Order> getOrdersByUserId(long userId);
+    
+    @Query("SELECT * FROM orders WHERE id = :orderId AND userId = :userId")
+    Order getOrderByIdAndUserId(long orderId, long userId);
+    
+    @Query("SELECT * FROM orders WHERE userId = :userId AND status = :status ORDER BY createTime DESC")
+    List<Order> getOrdersByUserIdAndStatus(long userId, OrderStatus status);
+    
     @Query("SELECT * FROM orders ORDER BY createTime DESC")
     List<Order> getAllOrders();
     

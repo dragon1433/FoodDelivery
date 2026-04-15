@@ -3,7 +3,7 @@ package com.fooddelivery.app;
 import android.app.Application;
 
 /**
- * 应用入口类 - Java + XML 版本
+ * Application Entry Class - Java + XML Version
  */
 public class FoodDeliveryApplication extends Application {
     

@@ -38,4 +38,12 @@ public class OrderViewModel extends AndroidViewModel {
     public void updateStatus(long orderId, OrderStatus status) {
         repository.updateStatus(orderId, status);
     }
+    
+    public void deleteOrder(Order order) {
+        repository.deleteOrder(order);
+    }
+    
+    public void updateOrder(Order order) {
+        repository.updateOrder(order);
+    }
 }
